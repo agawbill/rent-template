@@ -9,7 +9,9 @@
   </head>
 
   <body>
+    <% unless controller_name=="properties" && action_name=='welcome' %>
     <%= render 'layouts/navbar' %>
+    <%end%>
     <%= yield %>
     <%= render 'layouts/footer' %>
 
