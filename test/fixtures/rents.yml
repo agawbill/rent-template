@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 9.99
+  status: 
+  devolution_date: 2018-06-17 23:49:04
+  property_id: 1
+  user_id: 1
+
+two:
+  price: 9.99
+  status: 
+  devolution_date: 2018-06-17 23:49:04
+  property_id: 1
+  user_id: 1

@@ -1,0 +1,25 @@
+<h1>Properties#show</h1>
+<p>Find me in app/views/properties/show.html.erb</p>
+<%=@property.title%><br>
+<%=@property.kind%><br>
+<%=@property.availability%><br>
+<%=@property.price%><br>
+<%=@property.lat%><br>
+<%=@property.lng%><br>
+<%=@property.description%><br>
+<%=@property.street%><br>
+<%=@property.apt%><br>
+<%=@property.city%><br>
+<%=@property.state%><br>
+
+
+<h2>Rent property</h2>
+
+<%= form_for :rent, url:{action: 'assign', controller: 'rents'} do |f| %>
+Price: <%=f.text_field :price%><br>
+Status: <%=f.text_field :status%><br>
+Rent date: <%=f.datetime_field :rent_date%><br>
+Devolution date: <%=f.datetime_field :devolution_date%><br>
+<%= hidden_field_tag "property_id", @property.id %><br>
+<%=f.submit "Rent Property?"%><br>
+<%end%>
