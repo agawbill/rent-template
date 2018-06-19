@@ -1,29 +1,34 @@
+<div style="position: fixed; z-index: -99; width: 100%; height: 100%">
+  <iframe frameborder="0" height="100%" width="100%"
+    src="https://www.youtube.com/embed/ysiNjqduZqo?autoplay=1&loop=99"
+    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+
+  </iframe>
+</div>
+
+
 <div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-  <div> <h2> Please Enter Your Credentials </h2> <hr></div>
 
-<%= bootstrap_form_for(resource,
-                       as: resource_name,
-                       url: session_path(resource_name)) do |f| %>
+            <div> <h2> Welcome to Best_Rentals </h2> <hr></div>
 
-    <%= f.email_field :email,
+                  <%= bootstrap_form_for(resource,
+                     as: resource_name,
+                     url: session_path(resource_name)) do |f| %>
+
+                  <%= f.email_field :email,
                       autofocus: true,
                       class: 'form-control',
                       placeholder: 'email' %>
 
-    <%= f.password_field  :password,
-                          autocomplete: "off",
-                          class: 'form-control',
-                          placeholder: 'password' %>
+                  <%= f.password_field  :password,
+                      autocomplete: "off",
+                      class: 'form-control',
+                      placeholder: 'password' %>
 
+                  <% if devise_mapping.rememberable? -%>
+                  <%= f.check_box :remember_me %>
+                <% end -%>
+                  <%= f.submit "Log in", class: 'form-control login-button' %>
+                    <% end %>
 
-  <% if devise_mapping.rememberable? -%>
-     <%= f.check_box :remember_me %>
-  <% end -%>
-
-   <%= f.submit "Log in", class: 'form-control login-button' %>
-<% end %>
-</div>
-</div>
-</div>
+  </div>
