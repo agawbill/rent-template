@@ -37,6 +37,12 @@ end
       end
   end
 
+  def destroy
+    property = Property.find(params[:id])
+    property.destroy
+    redirect_to "/properties"
+  end
+
 private
 
   def property_params
