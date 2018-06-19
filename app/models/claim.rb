@@ -1,5 +1,6 @@
 class Claim < ApplicationRecord
-  belongs_to :rent
-  # why does claim belong to rent?
+  # has_many :properties, :through => :rents
+  has_one :user, :through => :rents
+  has_many :rents
   belongs_to :admin
 end
