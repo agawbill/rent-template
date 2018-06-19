@@ -9,11 +9,18 @@
   </head>
 
   <body>
-    <% unless controller_name=="properties" && action_name=='welcome' %>
+
+  <% unless controller_name=="properties" && action_name=='welcome' %>
     <%= render 'layouts/navbar' %>
-    <%end%>
+    <% flash.each do |name, message| %>
+    <div class="<%= name %>"><%= message %></div>
+    <% end %>
+
     <%= yield %>
     <%= render 'layouts/footer' %>
+
+
+
 
   </body>
 </html>
