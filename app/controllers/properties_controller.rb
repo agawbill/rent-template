@@ -8,7 +8,11 @@ class PropertiesController < ApplicationController
   end
 
   def new
+    if current_admin
     @property = Property.new
+    else
+      redirect_to "/"
+    end
   end
 
   def create
