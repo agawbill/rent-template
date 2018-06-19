@@ -1,2 +1,11 @@
 <h1>Claims#index</h1>
 <p>Find me in app/views/claims/index.html.erb</p>
+
+<%@claims.each_with_index do |c, index|%>
+<p><%=index +1%>: User: <%=User.find(Rent.find(c.admin_id).user_id).email%><br>
+Description: <%=c.description%><br>
+Status: <%=c.status%><br>
+Price: <%=c.price%><br>
+Type: <%=c.type_of_claim%><br></p>
+
+<%end%>
