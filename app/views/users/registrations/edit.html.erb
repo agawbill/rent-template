@@ -84,13 +84,25 @@
   </div>
 
   <div class="panel panel-info">
-    <div class="panel-heading">
-      My Claims
+    <div class="panel-heading"> My Claims
         <span class="badge">0</span>
     </div>
     <div class="panel-body">
 
-  
+<%@rents.each do |r|%>
+  <%if r.user_id == current_user.id%>
+      <%@claims.each do |c|%>
+        <%if r.id==c.rent_id%>
+
+            <p>- User: <%=User.find(r.user_id).email%><br>
+              Description: <%=c.description%><br>
+              Status: <%=c.status%><br>
+              Price: <%=c.price%><br>
+              Type: <%=c.type_of_claim%><br></p>
+              <%end%>
+            <%end%>
+          <%end%>
+        <%end%>
     </div>
   </div>
 
