@@ -1,7 +1,7 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
+<nav class="navbar navbar-default noBack">
+  <div class="container-fluid noBack">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+    <div class="navbar-header noBack">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -11,17 +11,20 @@
       <a class="navbar-brand" href="#">RentAPP</a>
        <ul class="nav navbar-nav">
       <li class="active"><a href="/"> Properties <span class="sr-only">(current)</span></a></li>
+
       <% if admin_signed_in?%>
       <li><a href="/properties/new">Create Property</a></li>
       <li><a href="/rents">User Rents</a></li>
       <%end%>
+
       <li><a href="/about">About</a></li>
     </ul>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse noBack" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+
             <% if admin_signed_in?%>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Logged in ADMIN mode: <%= current_admin.email%>  <span class="caret"></span></a>
@@ -31,17 +34,18 @@
               </ul>
               <%end%>
           <%if user_signed_in? %>
+
+          <% if user_signed_in? %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Logged in as: <%= current_user.email%>  <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle noBack" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Logged in as: <%= current_user.email%>  <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </li>
-               <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+               <li><%= link_to 'Edit Profile', edit_user_registration_path(current_user)%></li>
             </ul>
-            <%end%>
-            <% if !current_user && !current_admin %>
-            <li>    <a href="/users/sign_in"> Log In as User</a> </li>
-            <li>    <a href="/admins/sign_in"> Log In as Admin</a> </li>
+            <% else %>
+            <li>    <a href="/users/sign_in"> Log In</a> </li>
             <li>    <a href="/users/sign_up"> Sign Up</a> </li>
+             <% end %>
              <% end %>
           </li>
         </ul>
