@@ -1,5 +1,4 @@
-<h1>Properties#show</h1>
-<p>Find me in app/views/properties/show.html.erb</p>
+<h1>List of properties</h1>
 <%=@property.title%><br>
 <%=@property.kind%><br>
 <%=@property.availability%><br>
@@ -11,7 +10,7 @@
 <%=@property.apt%><br>
 <%=@property.city%><br>
 <%=@property.state%><br>
-
+<div><%= image_tag @property.image.url(:large)%></div>
 
 <h2>Rent property</h2>
 
@@ -23,3 +22,5 @@ Devolution date: <%=f.datetime_field :devolution_date%><br>
 <%= hidden_field_tag "property_id", @property.id %><br>
 <%=f.submit "Rent Property?"%><br>
 <%end%>
+
+

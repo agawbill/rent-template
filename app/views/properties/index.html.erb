@@ -1,5 +1,9 @@
-<h1>Properties#index</h1>
-<p>Find me in app/views/properties/index.html.erb</p>
+<h1>All properties</h1>
+
 <%@properties.each do |f|%>
 <a href="/properties/<%=f.id%>"><%=f.title%></a><br>
+<div class='thumb_image'><%= image_tag f.image.url(:medium) %></div><br>
 <%end%>
+
+
+

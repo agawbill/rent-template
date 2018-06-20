@@ -2,7 +2,7 @@
 <div class='container'>
   <h1>Property#new</h1>
 
-<%=form_for @property do |f| %>
+<%= form_for @property, html: {multipart: true} do |f| %>
   <div class="form-group">
   Title:    <%=f.text_field :title%>
     </div>
@@ -37,7 +37,15 @@
   <div class="form-group">
   State:    <%=f.text_field :state%>
   </div>
+  <div>
+    <%= f.file_field :image %>
+  </div>
 <%=f.submit %>
 <% end %>
 
-</end>
+
+
+
+
+
+

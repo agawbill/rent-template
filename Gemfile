@@ -23,6 +23,12 @@ gem "devise"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "bootstrap_form"
 gem 'jquery-rails'
+gem 'carrierwave', '~> 0.11.2'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+gem 'fog', '~> 2.0'
+gem "paperclip", "~> 6.0.0"
+
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
