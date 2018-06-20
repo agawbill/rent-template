@@ -104,8 +104,11 @@ GEM
     ffi (1.9.25)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
+    geocoder (1.4.9)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gmap_coordinates_picker (0.1.2)
+      rails (>= 3.1.0, < 6)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -254,6 +257,8 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
+  geocoder
+  gmap_coordinates_picker
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)

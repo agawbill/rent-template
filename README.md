@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+To set ENV variable
+
+$ export API_KEY=value
+
+api key was exported to ENV variable API_KEY
