@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :properties
   resources :rents
   resources :claims
-
+  resources :users
   # post assign: "rents#assign"
 
 post "assign" => "rents#assign"
