@@ -30,6 +30,15 @@ class ClaimsController < ApplicationController
     @claims= Claim.find(params[:id])
   end
 
+  def update
+    @claims= Claim.find(params[:id])
+    if @claims.update(claim_params)
+      redirect_to "/claims"
+    else
+      render edit_claim
+    end
+  end
+
 private
 
   def claim_params
