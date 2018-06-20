@@ -20,7 +20,7 @@ class RentsController < ApplicationController
     r.property_id=params[:property_id]
     r.user_id=current_user.id
     if r.save
-      redirect_to "/users/#{current_user.id}"
+      redirect_to "/users/edit"
     else
       render "/"
     end

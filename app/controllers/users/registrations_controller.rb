@@ -16,10 +16,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    super
     @claims=Claim.all
     @rents=Rent.all
     @user=User.find(current_user.id)
+    super
+
   end
 
   # PUT /resource
