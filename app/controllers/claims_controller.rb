@@ -2,6 +2,7 @@ class ClaimsController < ApplicationController
   def index
     if current_admin
     @claims=Claim.all
+    @rents=Rent.all
   else
     redirect_to "/"
   end
