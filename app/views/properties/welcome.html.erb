@@ -1,4 +1,18 @@
 <div style="position: fixed; z-index: -99; width: 100%; height: 100%">
 
-<iframe width=100% height=100%  src="https://www.youtube.com/embed/ysiNjqduZqo?autoplay=1&controls=0&loop=1&playlist=PLQmom3TCTIdzjNMb6WTh8R-ageVTViSEL;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
- </div>
+    <iframe width=100% height=100%  src="https://www.youtube.com/embed/ysiNjqduZqo?autoplay=1&controls=0&loop=1&list=PLQmom3TCTIdzjNMb6WTh8R-ageVTViSEL;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    </iframe>
+
+    <div style="position: absolute; top:40%;  left:35%;  z-index: 99; width: 30%; height: 20%;  " >
+      <% if user_signed_in? %>
+
+      <a href='/properties' class='bigFont btn btn-info btn-lg' > View all Properties</a>
+      <% else %>
+      <a href='/users/sign_in' class='bigFont btn btn-primary btn-lg' > Log In</a>
+      <a href='/users/sign_up' class='bigFont btn btn-info btn-lg' > Sign Up</a>
+      <br>  <br> <br>
+      <a href='/properties' class='bigFont btn btn-info btn-lg' > View all Properties</a>
+      <%end%>
+    </div>
+
+</div>

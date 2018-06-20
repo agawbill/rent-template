@@ -36,7 +36,12 @@ Status: <%=f.text_field :status%><br>
 Rent date: <%=f.datetime_field :rent_date%><br>
 Devolution date: <%=f.datetime_field :devolution_date%><br>
 <%=f.submit "Rent Property?"%><br>
+ 
+
+ 
+ 
 <%= hidden_field_tag "property_id", @property.id %><br>
+ 
 <%end%>
 
 
