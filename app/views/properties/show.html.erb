@@ -1,10 +1,12 @@
+
 <%= render 'properties/gallery' %>
 
 
 <div class='container'>
-<h1><%=@property.title%></h1>
-<br>
-<%=@property.title%><br>
+<h1><%=@property.title%></h1><br>
+<strong><%=@property.title%></strong><br>
+<div><%= image_tag @property.image.url(:large)%></div>
+
 <%=@property.kind%><br>
 <%=@property.availability%><br>
 <%=@property.price%><br>
@@ -19,6 +21,20 @@
     <div id="map"></div>
 </div>
 
+<h1>Properties for Rent </h1>
+<p>Find me in app/views/properties/show.html.erb</p>
+Title: <%=@property.title%><br>
+Property type: <%=@property.availability%><br>
+Price: <%=@property.price%><br>
+Latitude: <%=@property.lat%><br>
+Longtude: <%=@property.lng%><br>
+Description: <%=@property.description%><br>
+Street: <%=@property.street%><br>
+Apt: <%=@property.apt%><br>
+City: <%=@property.city%><br>
+State: <%=@property.state%><br>
+
+
 
 <h2>Rent property</h2>
 
@@ -27,12 +43,14 @@ Price: <%=f.text_field :price%><br>
 Status: <%=f.text_field :status%><br>
 Rent date: <%=f.datetime_field :rent_date%><br>
 Devolution date: <%=f.datetime_field :devolution_date%><br>
-<%= hidden_field_tag "property_id", @property.id %><br>
 <%=f.submit "Rent Property?"%><br>
+ 
+
+ 
+ 
+<%= hidden_field_tag "property_id", @property.id %><br>
+ 
 <%end%>
-
-
-
 
 
 
@@ -64,3 +82,4 @@ function initMap() {
     </script>
 
 <!-- END of MAP -->
+

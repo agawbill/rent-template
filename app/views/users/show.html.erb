@@ -1,0 +1,80 @@
+<image class='avatar thumbnail' src="https://images.unsplash.com/photo-1494475673543-6a6a27143fc8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8ac1cd959c612d4991a81c31ec840399&auto=format&fit=crop&w=634&q=80">
+
+<div id="editPageContainer" class="container">
+  testing
+            </div>
+
+
+
+<div id='loginPageRigth' class="col-lg-6 col-sm-12">
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+         My Rents
+          <span class="badge">0</span>
+      </div>
+      <div class="panel-body">
+<!--
+        <% if @rents != nil %>
+        <%@rents.each do |r|%>
+        <% if r.user_id = current_user.id%>
+        <%=r.price%><br>
+        <%=r.status%><br>
+
+      <%else%>
+        You do not have any Rents right now
+        <%end%>
+      <%end%>
+      <%end%> -->
+      <%if @user.rents.length != nil%>
+        <%@user.rents.each do |u|%>
+          <%=u.status%><br>
+        <%end%>
+      <%end%>
+
+      <%if @user.rents.length == nil%>
+        You do not have any Rents right now
+      <%end%>
+      </div>
+    </div>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        My Claims
+          <span class="badge">0</span>
+      </div>
+      <div class="panel-body">
+
+        <%@user.rents.each do |r|%>
+            <%=r.id%>
+          <%@claims.each do |c|%>
+            <% if c.rent_id == r.id%>
+              <%=c.status%>
+            <%end%>
+            <%if c.rent_id != r.id%>
+              You do not have any Claims right now
+            <%end%>
+          <%end%>
+        <%end%>
+      </div>
+    </div>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        My Documents
+          <span class="badge">0</span>
+      </div>
+      <div class="panel-body">
+        You haven't uploaded anything yet.
+        <button class="btn btn-sm btn-warning">Upload Document </button>
+      </div>
+    </div>
+
+     <hr>
+
+  </div>
+
+</div>
+
+
+</div>

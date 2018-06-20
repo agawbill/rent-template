@@ -1,2 +1,21 @@
+<div class="claimsContainer">
 <h1>Claims#new</h1>
-<p>Find me in app/views/claims/new.html.erb</p>
+
+
+<%= form_for @claims do |f| %>
+  <div class="claim_form">
+    Price: <%= f.text_field :price %>
+  </div>
+  <div class="claim_form">
+    Status: <%= f.text_field :status %>
+  </div>
+  <div class="claim_form">
+    Type of Claim: <%= f.text_field :type_of_claim %>
+  </div>
+  <div class="claim_form">
+    Description: <%= f.text_field :description %>
+  </div>
+  <%= f.submit %>
+  <% end %>
+
+</div>

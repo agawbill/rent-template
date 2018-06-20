@@ -1,6 +1,9 @@
 class RentsController < ApplicationController
   def index
     @rents=Rent.all
+    if !current_admin
+    redirect_to "/"
+  end
   end
 
   def new
@@ -8,6 +11,8 @@ class RentsController < ApplicationController
   end
 
   def show
+    @claim=Claim.new
+    @rent=Rent.find(params[:id])
   end
 
   def assign
@@ -15,7 +20,7 @@ class RentsController < ApplicationController
     r.property_id=params[:property_id]
     r.user_id=current_user.id
     if r.save
-      redirect_to "/rents"
+      redirect_to "/users/#{current_user.id}"
     else
       render "/"
     end

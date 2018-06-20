@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'
   end
+
   devise_for :admins
-  devise_for :users
+  devise_for :users, controllers: {
+     registrations: 'users/registrations'
+   }
+
   root "properties#welcome"
   resources :properties
   resources :rents
