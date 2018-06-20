@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_for :users
+  get '/logout' => 'devise/sessions#destroy'
   root "properties#welcome"
   resources :properties
   resources :rents
