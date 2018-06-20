@@ -1,6 +1,7 @@
 
 <h1>List of properties</h1>
-<%=@property.title%><br>
+<strong><%=@property.title%></strong><br>
+<div><%= image_tag @property.image.url(:large)%></div>
 <%=@property.kind%><br>
 <%=@property.availability%><br>
 <%=@property.price%><br>
@@ -11,7 +12,6 @@
 <%=@property.apt%><br>
 <%=@property.city%><br>
 <%=@property.state%><br>
-<div><%= image_tag @property.image.url(:large)%></div>
 
 <h1>Properties for Rent </h1>
 <p>Find me in app/views/properties/show.html.erb</p>
