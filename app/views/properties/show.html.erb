@@ -1,3 +1,18 @@
+
+<h1>List of properties</h1>
+<strong><%=@property.title%></strong><br>
+<div><%= image_tag @property.image.url(:large)%></div>
+<%=@property.kind%><br>
+<%=@property.availability%><br>
+<%=@property.price%><br>
+<%=@property.lat%><br>
+<%=@property.lng%><br>
+<%=@property.description%><br>
+<%=@property.street%><br>
+<%=@property.apt%><br>
+<%=@property.city%><br>
+<%=@property.state%><br>
+
 <h1>Properties for Rent </h1>
 <p>Find me in app/views/properties/show.html.erb</p>
 Title: <%=@property.title%><br>
@@ -10,6 +25,7 @@ Street: <%=@property.street%><br>
 Apt: <%=@property.apt%><br>
 City: <%=@property.city%><br>
 State: <%=@property.state%><br>
+
 
 
 <h2>Rent property</h2>
@@ -27,3 +43,5 @@ Devolution date: <%=f.datetime_field :devolution_date%><br>
 <%= hidden_field_tag "property_id", @property.id %><br>
  
 <%end%>
+
+
