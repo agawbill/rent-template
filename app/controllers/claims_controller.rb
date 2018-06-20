@@ -1,19 +1,11 @@
 class ClaimsController < ApplicationController
   def index
-<<<<<<< HEAD
-      if current_admin
-      @claims=Claim.all
-      else
-      redirect_to "/"
-      end
-=======
     if current_admin
     @claims=Claim.all
     @rents=Rent.all
   else
     redirect_to "/"
   end
->>>>>>> 4e9cbbb696d5278ea31f31aa26e6d35e81574d43
   end
 
   def new
