@@ -95,6 +95,21 @@ font-size: 1.1em;
     background-color: #fcfcfa;
   }
 }
+.bigFont.btn {font-size: 2em;
+              margin-left: 2%;
+              margin-right: 3%;
+              background: none;
+              border: 1px solid white;
+              padding-left:  15px;
+            padding-right:  15px;}
+.bigFont.btn:hover {border: 1px solid silver}
 
 .panel.panel-info
 {width: 100%;}
+.noBack {background:none; background-color: none; }
+#welcomePageDiv{width:auto;
+  height: auto;
+          position: absolute;
+          z-index: 9;
+          top:100px;
+          left: 300px;}
