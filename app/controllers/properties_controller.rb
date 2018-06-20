@@ -26,8 +26,25 @@ class PropertiesController < ApplicationController
 
 end
 
-
   def edit
+    @property = Property.find(params[:id])
+  end
+
+  def update
+    @property = Property.find(params[:id])
+    if @property.update(property_params)
+        flash[:success] = "property has been updated"
+        redirect_to "/properties"
+      else
+        flash[:error] = "please try again"
+        render edit_property
+      end
+  end
+
+  def destroy
+    property = Property.find(params[:id])
+    property.destroy
+    redirect_to "/properties"
   end
 
 private
