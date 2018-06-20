@@ -2,7 +2,7 @@
 <div class='container'>
   <h1>Property#new</h1>
 
-<%=form_for @property do |f| %>
+<%= form_for @property, html: {multipart: true} do |f| %>
   <div class="form-group">
   Title:    <%=f.text_field :title%>
     </div>
@@ -16,10 +16,10 @@
   Price:    <%=f.number_field :price%>
   </div>
   <div class="form-group">
-  Lat:    <%=f.number_field :lat%>
+  Latitude:    <%=f.number_field :lat%>
   </div>
   <div class="form-group">
-  Lng:    <%=f.number_field :lng%>
+  Longitude:    <%=f.number_field :lng%>
   </div>
 
   <div class="form-group">
@@ -37,7 +37,19 @@
   <div class="form-group">
   State:    <%=f.text_field :state%>
   </div>
+  <div>
+    <%= f.file_field :image %>
+  </div>
 <%=f.submit %>
 <% end %>
 
-</end>
+<<<<<<< HEAD
+</div>
+=======
+
+
+
+
+
+
+>>>>>>> 4e9cbbb696d5278ea31f31aa26e6d35e81574d43
