@@ -15,12 +15,12 @@
   <div class="form-group">
       <%=f.number_field :price%>
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
       <%=f.number_field :lat, value: number_to_currency(f.object.lat.to_f, delimiter: '', unit: ''), step: :any%>
   </div>
   <div class="form-group">
       <%=f.number_field :lng, value: number_to_currency(f.object.lng.to_f, delimiter: '', unit: ''), step: :any%>
-  </div>
+  </div> -->
 
   <div class="form-group">
     <%=f.text_area :description,:value => "Add details here. Ex: Sq. feets: 900 " , cols: 20, rows: 20 %>

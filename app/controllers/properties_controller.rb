@@ -9,6 +9,7 @@ class PropertiesController < ApplicationController
       @lat = @property.lat
       @lng = @property.lng
       @apiKey=ENV['API_KEY']
+
   end
 
   def new
@@ -57,6 +58,6 @@ end
 private
 
   def property_params
-    params.require(:property).permit(:title, :kind, :admin_id, :availability, :price, :lat, :lng, :description, :street, :apt, :city, :state, :image)
+    params.require(:property).permit(:title, :kind, :admin_id, :availability, :price, :description, :street, :apt, :city, :state, :image)
   end
 end
