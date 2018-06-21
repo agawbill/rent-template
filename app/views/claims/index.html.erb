@@ -5,7 +5,7 @@
 <%@claims.each_with_index do |c, index|%>
   <%@rents.each do |r|%>
     <%if r.id==c.rent_id%>
-      <p><%=index%>: User: <%=User.find(r.user_id).email%><br>
+      <p>User: <%=User.find(r.user_id).email%><br>
         Description: <%=c.description%><br>
         Status: <%=c.status%><br>
         Price: <%=c.price%><br>

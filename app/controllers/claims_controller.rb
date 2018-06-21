@@ -1,19 +1,11 @@
 class ClaimsController < ApplicationController
   def index
-<<<<<<< HEAD
-      if current_admin
-      @claims=Claim.all
-      else
-      redirect_to "/"
-      end
-=======
     if current_admin
     @claims=Claim.all
     @rents=Rent.all
-  else
+    else
     redirect_to "/"
-  end
->>>>>>> 4e9cbbb696d5278ea31f31aa26e6d35e81574d43
+    end
   end
 
   def new
@@ -42,10 +34,16 @@ class ClaimsController < ApplicationController
   def update
     @claims= Claim.find(params[:id])
     if @claims.update(claim_params)
-      redirect_to "/claims"
+    redirect_to "/claims"
     else
-      render edit_claim
+    render edit_claim
     end
+  end
+
+  def destroy
+    claim = Claim.find(params[:id])
+    claim.destroy
+    redirect_to "/claims"
   end
 
 private

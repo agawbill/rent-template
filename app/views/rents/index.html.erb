@@ -2,7 +2,7 @@
 <p>Find me in app/views/rents/index.html.erb</p>
 
 <%@rents.each_with_index do |r, index|%>
-<p><%=index +1%>: <%=User.find(r.user_id).email%><br>
+<p><%=User.find(r.user_id).email%><br>
 <li>Devolution: <%=r.devolution_date%></li>
 <li>Rent date: <%=r.rent_date%></li>
 <li>Price: <%=r.price%></li>
