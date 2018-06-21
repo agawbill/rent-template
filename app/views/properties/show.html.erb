@@ -1,5 +1,9 @@
 
-<h1>List of properties</h1>
+<%= render 'properties/gallery' %>
+
+
+<div class='container'>
+<h1><%=@property.title%></h1><br>
 <strong><%=@property.title%></strong><br>
 <div><%= image_tag @property.image.url(:large)%></div>
 <%=@property.kind%><br>
@@ -12,11 +16,15 @@
 <%=@property.apt%><br>
 <%=@property.city%><br>
 <%=@property.state%><br>
+<div class='mapOnShowPage'>
+    <div id="map"></div>
+</div>
 
 <h1>Properties for Rent </h1>
 <p>Find me in app/views/properties/show.html.erb</p>
 Title: <%=@property.title%><br>
-Property type: <%=@property.availability%><br>
+Property type: <%=@property.kind%><br>
+Availability: <%=@property.availability%><br>
 Price: <%=@property.price%><br>
 Latitude: <%=@property.lat%><br>
 Longtude: <%=@property.lng%><br>
@@ -40,6 +48,38 @@ Devolution date: <%=f.datetime_field :devolution_date%><br>
 
 
 
+
 <%= hidden_field_tag "property_id", @property.id %><br>
 
 <%end%>
+
+
+
+
+<!-- MAP -->
+
+    <script>
+
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = { lat: <%=@lat%>, lng: <%=@lng%>};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 16, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=<%=@apiKey%>&callback=initMap">
+
+    </script>
+
+<!-- END of MAP -->

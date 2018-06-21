@@ -27,7 +27,24 @@ class RentsController < ApplicationController
   end
 
   def edit
+    @rents=Rent.find(params[:id])
+  end
 
+  def update
+    @rents=Rent.find(params[:id])
+    if @rents.save
+      flash[:success] = "rent has been updated"
+      redirect_to "/rents"
+    else
+      flash[:error] = "please try again"
+      render edit_rent_path
+    end
+  end
+
+  def destroy
+    rent = Rent.find(params[:id])
+    rent.destroy
+    redirect_to "/rents"
   end
 
   private
@@ -35,5 +52,10 @@ class RentsController < ApplicationController
   def rent_params
     params.require(:rent).permit(:user_id, :property_id, :price, :status, :rent_date, :devolution_date)
   end
+
+
+
+
+
 
 end

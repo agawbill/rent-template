@@ -73,7 +73,11 @@
     <%end%> -->
     <%if @user.rents.length != nil%>
       <%@user.rents.each do |u|%>
-        <%=u.status%><br>
+      <p> <li> User: <%=current_user.email%><br>
+        Status: <%=u.status%><br>
+        Price: <%=u.price%><br>
+        Rent date: <%=u.rent_date%><br>
+        Devolution date: <%=u.devolution_date%></li><br></p>
       <%end%>
     <%end%>
 
@@ -84,13 +88,27 @@
   </div>
 
   <div class="panel panel-info">
-    <div class="panel-heading">
-      My Claims
+    <div class="panel-heading"> My Claims
         <span class="badge">0</span>
     </div>
     <div class="panel-body">
 
-  
+  <%@claims.each do |c|%>
+  <%if @user.rents.length != nil%>
+    <%@user.rents.each do |r|%>
+      <%if c.rent_id == r.id%>
+            <p><li> User: <%=User.find(r.user_id).email%><br>
+              Description: <%=c.description%><br>
+              Status: <%=c.status%><br>
+              Price: <%=c.price%><br>
+              Type: <%=c.type_of_claim%></li><br></p>
+              <%end%>
+            <%end%>
+          <%end%>
+      <%if @user.rents.length == nil%>
+          You do not have any Claims right now
+        <%end%>
+      <%end%>
     </div>
   </div>
 

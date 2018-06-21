@@ -1,10 +1,14 @@
 class PropertiesController < ApplicationController
   def index
     @properties = Property.all
+
   end
 
   def show
       @property = Property.find(params[:id])
+      @lat = @property.lat
+      @lng = @property.lng
+      @apiKey=ENV['API_KEY']
   end
 
   def new
@@ -37,7 +41,7 @@ end
         redirect_to "/properties"
       else
         flash[:error] = "please try again"
-        render edit_property
+        render edit_property_path
       end
   end
 

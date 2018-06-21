@@ -15,7 +15,10 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
-
+  #map {
+   height: 400px;  /* The height is 400 pixels */
+   width: 100%;  /* The width is the width of the web page */
+  }
  #loginPageLeft {position: absolute;
      top:60px;
      left: 6%;
@@ -113,3 +116,28 @@ font-size: 1.1em;
           z-index: 9;
           top:100px;
           left: 300px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+          #waterwheel-carousel {
+            width:900px;
+            height:250px;
+            position:relative;
+            clear:both;
+            overflow:hidden;
+            margin:0 auto;
+          }
+          #waterwheel-carousel img {
+            visibility:hidden; /* hide images until carousel positions them */
+            cursor:pointer;
+          }
