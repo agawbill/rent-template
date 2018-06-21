@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
   def index
     @properties = Property.all
-     
+
   end
 
   def show
@@ -27,12 +27,15 @@ class PropertiesController < ApplicationController
     else
       redirect_to "/properties/new"
   end
-
 end
 
   def edit
+    if current_admin
     @property = Property.find(params[:id])
+  else
+    redirect_to "/properties"
   end
+end
 
   def update
     @property = Property.find(params[:id])

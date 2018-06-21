@@ -16,8 +16,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
+    rent=Rent.all
     @claims=Claim.all
-    @rents=Rent.all
+    @rent=Rent.all
     @user=User.find(current_user.id)
     super
 
