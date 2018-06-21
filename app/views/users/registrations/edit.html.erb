@@ -90,11 +90,9 @@
     <div class="panel-body">
 
   <%@claims.each do |c|%>
+  <%if @user.rents.length != nil%>
     <%@user.rents.each do |r|%>
-    <%if c.rent_id == r.id%>
-
-
-
+      <%if c.rent_id == r.id%>
             <p>- User: <%=User.find(r.user_id).email%><br>
               Description: <%=c.description%><br>
               Status: <%=c.status%><br>
@@ -103,7 +101,10 @@
               <%end%>
             <%end%>
           <%end%>
-
+      <%if @user.rents.length == nil%>
+          You do not have any Claims right now
+        <%end%>
+      <%end%>
     </div>
   </div>
 
