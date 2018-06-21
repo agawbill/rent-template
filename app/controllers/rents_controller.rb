@@ -11,9 +11,13 @@ class RentsController < ApplicationController
   end
 
   def show
+    if current_admin || current_user
     @claim=Claim.new
     @rent=Rent.find(params[:id])
+  else
+    redirect_to "/properties"
   end
+end
 
   def assign
     r=Rent.new(rent_params)
