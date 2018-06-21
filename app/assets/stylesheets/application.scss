@@ -129,15 +129,18 @@ font-size: 1.1em;
 margin: 0;}
 #myCarousel {padding: 0;
 margin: 0;
+height: 80vh;
 position: absolute;
 top: 0;
 left:0;
 width: 100%;
 z-index: -99;
-height: 100vh;}
+}
 .propertyInfoOnShowPage  {height: 90vh;
                           width: 100%;
-                          border: 3px solid gold;}
+                          border: 3px solid;
+                         border-color: rgb(252, 230, 90);
+                       }
 .propertyPageEmpty  {height: 110vh;
                       width: 100%;
  }
