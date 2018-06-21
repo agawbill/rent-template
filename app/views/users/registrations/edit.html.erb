@@ -89,10 +89,11 @@
     </div>
     <div class="panel-body">
 
-<%@rents.each do |r|%>
-  <%if r.user_id == current_user.id%>
-      <%@claims.each do |c|%>
-        <%if r.id==c.rent_id%>
+  <%@claims.each do |c|%>
+    <%@user.rents.each do |r|%>
+    <%if c.rent_id == r.id%>
+
+
 
             <p>- User: <%=User.find(r.user_id).email%><br>
               Description: <%=c.description%><br>
@@ -102,7 +103,7 @@
               <%end%>
             <%end%>
           <%end%>
-        <%end%>
+
     </div>
   </div>
 
