@@ -59,17 +59,7 @@
         <span class="badge"><%=@user.rents.count%></span>
     </div>
     <div class="panel-body">
-  <!--
-      <% if @rents != nil %>
-      <%@rents.each do |r|%>
-      <% if r.user_id = current_user.id%>
-      <%=r.price%><br>
-      <%=r.status%><br>
-    <%else%>
-      You do not have any Rents right now
-      <%end%>
-    <%end%>
-    <%end%> -->
+
     <%if @user.rents.length != nil%>
       <%@user.rents.each do |u|%>
       <p> <li> User: <%=current_user.email%><br>
@@ -88,20 +78,39 @@
 
   <div class="panel panel-info">
     <div class="panel-heading"> My Claims
-        <span class="badge">0</span>
+
+      <%claimCount=0%>
+      <%@claims.each do |c|%>
+        <%if @user.rents.length != nil%>
+          <%@user.rents.each do |r|%>
+            <%if c.rent_id == r.id%>
+              <%claimCount=claimCount+1%>
+                  <%end%>
+                <%end%>
+              <%end%>
+            <%end%>
+
+
+        <span class="badge"><%=claimCount%></span>
     </div>
     <div class="panel-body">
 
+
   <%@claims.each do |c|%>
+
   <%if @user.rents.length != nil%>
     <%@user.rents.each do |r|%>
       <%if c.rent_id == r.id%>
+
+
             <p><li> User: <%=User.find(r.user_id).email%><br>
               Description: <%=c.description%><br>
               Status: <%=c.status%><br>
               Price: <%=c.price%><br>
               Type: <%=c.type_of_claim%></li><br></p>
+
               <%end%>
+
             <%end%>
           <%end%>
       <%if @user.rents.length == nil%>
