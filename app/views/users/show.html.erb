@@ -29,12 +29,13 @@
       <%if @user.rents.length != nil%>
         <%@user.rents.each do |u|%>
           <%=u.status%><br>
-        <%end%>
-      <%end%>
-
-      <%if @user.rents.length == nil%>
+        <%else%>
         You do not have any Rents right now
       <%end%>
+
+      <!-- <%if @user.rents.length == nil%>
+
+      <%end%> -->
       </div>
     </div>
 
@@ -51,11 +52,10 @@
             <% if c.rent_id == r.id%>
               <%=c.status%>
             <%end%>
-            <%if c.rent_id != r.id%>
+            <%else%>
               You do not have any Claims right now
             <%end%>
           <%end%>
-        <%end%>
       </div>
     </div>
 
