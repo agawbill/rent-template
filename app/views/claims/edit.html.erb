@@ -1,2 +1,22 @@
-<h1>Claims#edit</h1>
-<p>Find me in app/views/claims/edit.html.erb</p>
+
+<div class="editClaimsContainer">
+<h1>Edit Claims</h1>
+
+
+<%= form_for @claims do |f| %>
+  <div class="claim_edit">
+    Price: <%= f.text_field :price %>
+  </div><br>
+  <div class="claim_edit">
+    Status: <%= f.text_field :status %>
+  </div><br>
+  <div class="claim_edit">
+    Type of Claim: <%= f.text_field :type_of_claim %>
+  </div><br>
+  <div class="claim_edit">
+    Description: <%= f.text_field :description %>
+  </div><br>
+  <%= f.submit "Edit Claims" %>
+  <% end %>
+</div>
+<%= link_to "Delete", claim_path, method: :delete %>
