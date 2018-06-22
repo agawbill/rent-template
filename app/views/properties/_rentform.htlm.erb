@@ -2,10 +2,11 @@
 
 
 <%= bootstrap_form_for :rent, url:{action: 'assign', controller: 'rents'} do |f| %>
- <%=f.text_field :price%><br>
-   <%=f.date_field :rent_date, :value => Time.now.strftime('%Y-%m-%d')%><br>
+ <%=f.text_field :price, :readonly => true%> <div class="btn btn-default" id="buttonPrice">Calculate Price</div>
+ <br><br>
+   <%=f.date_field :rent_date, :value => Time.now.strftime('%Y-%m-%d'), class: :rentDate%> <br>
 
- <%=f.date_field :devolution_date, :value => Time.now %><br>
+ <%=f.date_field :devolution_date, :value => Time.now, class: :devolDate %><br>
 <%=f.submit "Rent Property?"%><br>
 <%= hidden_field_tag "property_id", @property.id %><br>
 <%= hidden_field_tag "availability", @property.availability => "unavailable" %><br>
