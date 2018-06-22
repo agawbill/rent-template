@@ -13,6 +13,11 @@
  /*
  *= require rails_bootstrap_forms
  */
+ /*
+ *= require_tree .
+ *= require social-share-button
+ *= require_self
+ */
  @import "bootstrap-sprockets";
  @import "bootstrap";
 body {padding: 0;
@@ -141,3 +146,13 @@ height: 100vh;}
 .propertyPageEmpty  {height: 110vh;
                       width: 100%;
  }
+
+
+.social-share-button {
+  display: inline-block;
+  position: fixed;
+  left: 1100px;
+  bottom: 500px;
+  width: 30px;
+  height: 30px;
+}

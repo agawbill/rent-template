@@ -1,5 +1,6 @@
 
 <%= render 'properties/gallery' %>
+
 <div class='row'>
 
   <div class='propertyPageEmpty col-lg-12'>
@@ -11,6 +12,8 @@
         <div class="row">
 
           <div class="col-lg-6 col-md-6 col-sm-12">
+
+            <%= social_share_button_tag("My Site") %>
 
             <h1><%=@property.title%></h1><br>
             <div class="panel panel-default">
