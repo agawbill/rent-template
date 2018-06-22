@@ -47,7 +47,14 @@
                 Lng: <%=@property.lng%>
               </div>
             </div>
-
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Description</h3>
+              </div>
+              <div class="panel-body">
+                <%=@property.description%>
+              </div>
+            </div>
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">Address</h3>
@@ -62,18 +69,9 @@
 
           </div>
 
-
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <%= render 'properties/rentform.htlm.erb' %>
-            <div style="width: 100%;"  class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Description</h3>
-              </div>
-              <div class="panel-body">
-                <%=@property.description%>
-              </div>
-            </div>
 
+            <%= render 'properties/rentform.htlm.erb' %>
 
           </div>
         </div>
@@ -81,7 +79,6 @@
       </div>
 
 <div class='propertyInfoOnShowPage col-lg-12'>
-
 
       <%= render 'properties/map' %>
 

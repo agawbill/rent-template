@@ -15,10 +15,19 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
-  #map {
-   height: 400px;  /* The height is 400 pixels */
-   width: 100%;  /* The width is the width of the web page */
-  }
+body {padding: 0;
+margin:0;}
+#map, #pano {
+  float: left;
+  height: 500px;
+  width: 46%;
+  border: 2px solid black;
+  margin-left: 2%;
+  margin-top: 4%;
+}
+#street-view {
+  height: 100%;
+}
  #loginPageLeft {position: absolute;
      top:60px;
      left: 6%;
@@ -116,28 +125,19 @@ font-size: 1.1em;
           z-index: 9;
           top:100px;
           left: 300px;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-          #waterwheel-carousel {
-            width:900px;
-            height:250px;
-            position:relative;
-            clear:both;
-            overflow:hidden;
-            margin:0 auto;
-          }
-          #waterwheel-carousel img {
-            visibility:hidden; /* hide images until carousel positions them */
-            cursor:pointer;
-          }
+.navbar {padding: 0;
+margin: 0;}
+#myCarousel {padding: 0;
+margin: 0;
+position: absolute;
+top: 0;
+left:0;
+width: 100%;
+z-index: -99;
+height: 100vh;}
+.propertyInfoOnShowPage  {height: 90vh;
+                          width: 100%;
+                          border: 3px solid gold;}
+.propertyPageEmpty  {height: 110vh;
+                      width: 100%;
+ }

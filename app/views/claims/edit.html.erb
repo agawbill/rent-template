@@ -6,16 +6,16 @@
 <%= form_for @claims do |f| %>
   <div class="claim_edit">
     Price: <%= f.text_field :price %>
-  </div>
+  </div><br>
   <div class="claim_edit">
     Status: <%= f.text_field :status %>
-  </div>
+  </div><br>
   <div class="claim_edit">
     Type of Claim: <%= f.text_field :type_of_claim %>
-  </div>
+  </div><br>
   <div class="claim_edit">
     Description: <%= f.text_field :description %>
-  </div>
+  </div><br>
   <%= f.submit "Edit Claims" %>
   <% end %>
 </div>

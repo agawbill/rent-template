@@ -26,7 +26,8 @@ devolution_Date: <%= @rent.devolution_date %><br>
   <div class="form-group">
   <%= hidden_field_tag "rent_id", @rent.id %>
 </div>
-<%=f.submit %>
+<%=f.submit %><br>
+<%= link_to "Edit", edit_property_path %>
 <% end %>
 <%end%>
 </end>
