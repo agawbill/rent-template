@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'homes/show'
+  get "/properties/showall" => "properties#showall"
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
@@ -22,6 +22,7 @@ end
   resources :rents
   resources :claims
   resources :homes, only: [:show]
+
 
   # post assign: "rents#assign"
 

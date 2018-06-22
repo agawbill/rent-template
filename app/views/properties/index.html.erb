@@ -1,19 +1,27 @@
+<div class='row'>
+
 <div  class='propertyPageEmpty col-lg-12'>
   <%= render 'properties/galleryIndex' %>
 </div>
+<center> <h2>Recently added</h2> </center>
 
-<div class='container'>
+
+
+
+<div  class='propertyInfoOnShowPage1 col-lg-12'>
+  <div class='container'>
+
 
       <div class='row'>
-        
+        <BR> <BR> <BR>
         <%@properties.each do |f|%>
-        <div class="col-lg-4">
-            <div class='thumbnail'>
+        <div class="col-lg-4 col-md-6 col-sm-12 heightDetermined">
+            <div class='thumbnail heightDetermined'>
               <div class='thumbnail'><%= image_tag f.image.url(:medium) %></div>
                   <div class="caption">
                     <h3><a href="/properties/<%=f.id%>"> <%=f.title%> </a></h3>
-                    <p>...</p>
-                    <p><a href="/properties/<%=f.id%>" class="btn btn-primary" role="button">View Property</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    <p><%=f.description%></p>
+                     <p><a href="/properties/<%=f.id%>" class="btn btn-primary pull-right" role="button">View Property</a> </p>
                   </div>
               </div>
             </div>
@@ -21,4 +29,58 @@
 
 
       </div>
+</div>
+</div>
+
+<div  class='propertyPageEmpty col-lg-12'>
+  <div class='propertyPageEmpty container'>
+  <center><h2> Our locations </h2></center>
+
+  <hr id='yellowHR'>
+  <br>
+  <div class='row'>
+    <div class="col-md-6 col-sm-12">
+
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">1. Main Office</h3>
+          </div>
+          <div class="panel-body">
+            <h4>Address: </h4>
+            <h4>Phone:</h4>
+            <h4>Fax:</h4>
+            <h4>E-mail:</h4>
+          </div>
+      </div>
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">2. North-East Branch</h3>
+          </div>
+          <div class="panel-body">
+            <h4>Address: </h4>
+            <h4>Phone:</h4>
+            <h4>Fax:</h4>
+            <h4>E-mail:</h4>
+          </div>
+      </div>
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">3 . Fishtown Branch</h3>
+          </div>
+          <div class="panel-body">
+            <h4>Address: </h4>
+            <h4>Phone:</h4>
+            <h4>Fax:</h4>
+            <h4>E-mail:</h4>
+          </div>
+      </div>
+
+
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <%= render 'properties/testMap' %>
+    </div>
+
+  </div>
 </div>

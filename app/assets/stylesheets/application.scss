@@ -20,9 +20,36 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
- @import "properties";
+
+
+
+
+
+ .navbar {
+    background-color: transparent;
+    background: transparent;
+    border-color: transparent;
+     padding: 0;
+    margin: 0;
+ }
+
+ .navbar li { color: #000 }
+ .navbar-nav li:hover { border: 1px solid white;
+                        border-radius: 15px;
+                       font-style: bold;}
+ .navbar-default .navbar-nav > li > a {color: white;
+                                        font-size: 1.2em;
+                                      font-style: bold;}
+  .navbar-default .navbar-brand  {color: white;
+                                     font-size: 1.5em;
+                                     font-style: bold;}
+
+
+
 body {padding: 0;
-margin:0;}
+        margin:0;
+}
+
 #map, #pano {
   float: left;
   height: 500px;
@@ -35,6 +62,15 @@ margin:0;}
 #street-view {
   height: 100%;
 }
+#mapAllLocations {
+  margin: 0 auto;
+  border: 3px solid silver;
+  border-radius: 25px;
+     height: 60vh;
+     width: 99%;
+     margin-top: 15%;
+      margin-right: 15%;
+   }
  #loginPageLeft {position: absolute;
      top:60px;
      left: 6%;
@@ -52,7 +88,26 @@ margin:0;}
 
       // z-index: 5;
     }
+    #welcomePageDiv{width:auto;
+      height: auto;
+              position: absolute;
+              z-index: 9;
+              top:100px;
+              left: 300px;}
 
+    #showPropertyImage {width: 100%;
+                                  height: 100vh;
+                                  position: absolute;
+                                  top: -56px;
+                                  left: 0;
+                                  z-index: -111;
+                                  overflow: hidden;}
+    #editPageContainer {
+                text-align: center;
+                background: #fcfcfa;
+                color: #818078;
+               }
+#yellowHR {border: 2px solid rgb(252, 230, 90)}
     .avatar {position: absolute;
         top:60px;
         left: 6%;
@@ -72,12 +127,6 @@ font-size: 1.1em;
 .panel {
   width: 80%;
 }
-#editPageContainer {
-  text-align: center;
-  background: #fcfcfa;
-  color: #818078;
- }
-
 .hr-text {
   line-height: 1em;
   position: relative;
@@ -90,7 +139,6 @@ font-size: 1.1em;
   font-size: 2em;
   &:before {
     border: 4px solid white;
-
     content: '';
     // use the linear-gradient for the fading effect
     // use a solid background color for a solid bar
@@ -115,43 +163,41 @@ font-size: 1.1em;
   }
 }
 .bigFont.btn {font-size: 2em;
-              margin-left: 2%;
-              margin-right: 3%;
               background: none;
+              float: left;
               border: 1px solid white;
               padding-left:  15px;
             padding-right:  15px;}
+
 .bigFont.btn:hover {border: 1px solid silver}
 
 .panel.panel-info
 {width: 100%;}
-.noBack {background:none; background-color: none; }
-#welcomePageDiv{width:auto;
-  height: auto;
-          position: absolute;
-          z-index: 9;
-          top:100px;
-          left: 300px;}
-.navbar {padding: 0;
-margin: 0;}
-img {height: 100%; }
-#myCarousel {padding: 0;
+
+img {height: 100%;   border-bottom: 3px solid rgb(252, 230, 90);
+ }
+
+.myCarousel {
+padding: 0;
 margin: 0;
-height: 80vh;
+height: 100vh;
 position: absolute;
-top: 0;
+top: -56px;
 left:0;
 width: 100%;
 z-index: -99;
 }
-.propertyInfoOnShowPage  {height: 90vh;
+.propertyInfoOnShowPage  {height: 100vh;
                           width: 100%;
                           border: 3px solid rgb(252, 230, 90);
-
                        }
-.propertyPageEmpty  {height: 110vh;
+.propertyInfoOnShowPage1 {height: auto;
+                          width: 100%;
+                          border: 3px solid rgb(252, 230, 90);
+                       }
+.propertyPageEmpty  {height: 100vh;
                       width: 100%;
-                      margin-bottom: 2%;
+                       z-index: -199;
  }
 
 
@@ -166,10 +212,22 @@ z-index: -99;
 }
 
 .carousel-caption {margin: 0 auto;}
-#showPropertyImage {width: 100%;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    z-index: -111;
-                    overflow: hidden;}
 
+.left .carousel-control > a {position: absolute; top: 300px; z-index: 199;}
+
+iframe {pointer-events: none;
+        width: 100%;
+        overflow: hidden;
+        height: 105vh;
+        position: absolute;
+        top: -56px;
+        left: 0;
+        z-index: -111;}
+.heightDetermined {height: 60vh; margin-bottom: 30px;}
+
+
+.footer {width: 100%;
+          height: 40px;
+          margin-bottom: 2px;
+          margin-top: 15px;
+          border-top: 2px solid rgb(252, 230, 90);}
