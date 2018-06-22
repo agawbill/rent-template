@@ -6,6 +6,8 @@ class PropertiesController < ApplicationController
 
   def show
       @property = Property.find(params[:id])
+      @comments= Comment.all
+
   end
 
   def new
