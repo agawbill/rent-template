@@ -8,7 +8,8 @@ class PropertiesController < ApplicationController
       @property = Property.find(params[:id])
       @lat = @property.lat
       @lng = @property.lng
-      @apiKey=ENV['API_KEY']
+      @apiKey=''
+      @rent=Rent.new
 
   end
 
