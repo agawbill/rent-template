@@ -109,6 +109,7 @@ GEM
     ffi (1.9.25)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
+    geocoder (1.4.9)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gmap_coordinates_picker (0.1.2)
@@ -277,6 +278,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  geocoder
   gmap_coordinates_picker
   jbuilder (~> 2.5)
   jquery-rails

@@ -1,9 +1,8 @@
 
-<%= render 'properties/gallery' %>
-
 <div class='row'>
 
-  <div class='propertyPageEmpty col-lg-12'>
+  <div  class='propertyPageEmpty col-lg-12'>
+    <img id="showPropertyImage" src="<%=@property.image.url%>"/>
   </div>
 
   <div class='propertyInfoOnShowPage col-lg-12'>
@@ -14,6 +13,7 @@
           <div class="col-lg-6 col-md-6 col-sm-12">
 
             <%= social_share_button_tag("My Site") %>
+
 
             <h1><%=@property.title%></h1><br>
             <div class="panel panel-default">
@@ -29,6 +29,8 @@
               </div>
               <div class="panel-body">
                 <%=@property.availability%>
+                
+
               </div>
             </div>
 
@@ -60,6 +62,7 @@
                 <%=@property.apt%>
                  <%=@property.city%>
                  <%=@property.state%>
+
               </div>
             </div>
 
@@ -68,6 +71,22 @@
 
           <div class="col-lg-6 col-md-6 col-sm-12">
             <%= render 'properties/rentform.htlm.erb' %>
+
+
+          <div class="col-lg-6 col-md-6 col-sm-12">
+
+          <% if user_signed_in? %>
+            <%= render 'properties/rentform.htlm.erb' %>
+            <% else %>
+            <div>
+              <br>
+            <h3>  Please Log In in order to Rent.</h3>
+              <a href='/login' class='btn btn-info'> Log in </a>
+            </div>
+            <% end %>
+
+
+
             <div style="width: 100%;"  class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">Description</h3>
@@ -84,6 +103,11 @@
       </div>
 
 <div class='propertyInfoOnShowPage col-lg-12'>
+
+
+<div class="container">
+<h1> Neighborhood tour </h1>
+</div>
 
 
       <%= render 'properties/map' %>

@@ -31,6 +31,7 @@ gem "paperclip", "~> 6.0.0"
 
 gem "gmap_coordinates_picker"
 gem 'dotenv-rails'
+gem 'geocoder'
 
 
 # See https://github.com/rails/execjs#readme for more supported runtimes

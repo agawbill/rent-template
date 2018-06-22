@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
+
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -19,7 +11,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="<%=@properties[0].image.url%>" alt="Los Angeles" style="width:100%;">
+        <img src="<%=@properties[0].image.url%>"  style="width:100%; height:100vh;">
         <div class="carousel-caption d-none d-md-block">
             <h5><%=@properties[0].title%></h5>
             <p><%=@properties[0].description%></p>
@@ -28,7 +20,7 @@
 
       <%@properties.each do |f|%>
         <div class="item">
-        <img src="<%=f.image.url%>" alt="Chicago" style="width:100%;">
+        <img src="<%=f.image.url%>"  style="width:100%; height:100vh">
         <div class="carousel-caption d-none d-md-block">
             <h5><%=f.title%></h5>
             <p><%=f.description%></p>
@@ -49,7 +41,3 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-
-</body>
-</html>
