@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   get "/properties/showall" => "properties#showall"
+
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
   end
@@ -13,9 +15,13 @@ Rails.application.routes.draw do
    }
 
   root "properties#welcome"
-  resources :properties
+  
+  resources :properties do 
+  resources :comments
+end
   resources :rents
   resources :claims
+  resources :homes, only: [:show]
 
 
   # post assign: "rents#assign"

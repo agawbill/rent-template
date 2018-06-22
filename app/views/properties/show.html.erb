@@ -1,6 +1,7 @@
 
 <div class='row'>
 
+
   <div  class='propertyPageEmpty col-lg-12'>
     <img id="showPropertyImage" src="<%=@property.image.url%>"/>
   </div>
@@ -11,6 +12,9 @@
         <div class="row">
 
           <div class="col-lg-6 col-md-6 col-sm-12">
+
+            <%= social_share_button_tag("My Site") %>
+
 
             <h1><%=@property.title%></h1><br>
             <div class="panel panel-default">
@@ -26,7 +30,7 @@
               </div>
               <div class="panel-body">
                 <%=@property.availability%>
-                
+
 
               </div>
             </div>
@@ -37,6 +41,14 @@
               </div>
               <div class="panel-body">
                 <%=@property.kind%>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Price of Property Per Day</h3>
+              </div>
+              <div class="panel-body">
+                <%=@property.price%>
               </div>
             </div>
 
@@ -55,15 +67,17 @@
                 <h3 class="panel-title">Address</h3>
               </div>
               <div class="panel-body">
-                <%=@property.street%>
-                <%=@property.apt%>
-                 <%=@property.city%>
-                 <%=@property.state%>
+                <%=@property.address%>
+
 
               </div>
             </div>
 
           </div>
+
+
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <%= render 'properties/rentform.htlm.erb' %>
 
 
           <div class="col-lg-6 col-md-6 col-sm-12">
@@ -79,6 +93,7 @@
             <% end %>
 
 
+
             <div style="width: 100%;"  class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">Description</h3>
@@ -88,6 +103,20 @@
               </div>
             </div>
 
+            <div class='propertyInfoOnShowPage col-lg-12 container'>
+
+    
+      <h2><%=@property.comments.count %> Reviews</h2>  
+      <h3>Leave a review</h3>
+      <%= render "comments/form" %>
+      <%@comments.each do |c|%>
+      <%if @property.id == c.property_id%>
+     <div>From:<%=User.find(c.user_id).email%><strong><br><%= c.content %></div></strong><hr>
+      <%end%>
+      <%end%>
+  </div>
+</div>
+
 
           </div>
         </div>
@@ -96,11 +125,39 @@
 
 <div class='propertyInfoOnShowPage col-lg-12'>
 
+
 <div class="container">
 <h1> Neighborhood tour </h1>
 </div>
+
 
       <%= render 'properties/map' %>
 
   </div>
 </div>
+
+
+<script>
+var rent_devolution_date=document.getElementById('rent_devolution_date')
+var rent_rent_date=document.getElementById('rent_rent_date')
+var rent_price=document.getElementById('rent_price')
+var buttonPrice=document.getElementById('buttonPrice')
+
+var oneDay = 24*60*60*1000;
+var date1= new Date(rent_devolution_date.value)
+var date2= new Date (rent_rent_date.value)
+
+function calculateRealtime(){
+  date1=new Date(rent_devolution_date.value)
+  date2= new Date (rent_rent_date.value)
+  rent_price.value= Math.round(Math.abs(date1.getTime()  - date2.getTime())/(oneDay))*<%=@property.price%>
+}
+
+buttonPrice.addEventListener('click', function(){
+  calculateRealtime()
+});
+
+
+
+
+</script>

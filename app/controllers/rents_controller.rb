@@ -3,7 +3,7 @@ class RentsController < ApplicationController
     @rents=Rent.all
     if !current_admin
     redirect_to "/"
-  end
+    end
   end
 
   def new
@@ -32,6 +32,24 @@ end
   end
 
   def edit
+    @rents=Rent.find(params[:id])
+  end
+
+  def update
+    @rents=Rent.find(params[:id])
+    if @rents.save
+      flash[:success] = "rent has been updated"
+      redirect_to "/rents"
+    else
+      flash[:error] = "please try again"
+      render edit_rent_path
+    end
+  end
+
+  def destroy
+    rent = Rent.find(params[:id])
+    rent.destroy
+    redirect_to "/rents"
   end
 
   private
