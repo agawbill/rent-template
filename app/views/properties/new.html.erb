@@ -7,11 +7,12 @@
       <%=f.text_field :title%>
     </div>
   <div class="form-group">
-      <%=f.text_field :kind%>
+    <%= f.select :kind, options_for_select([["Select Property Type", ""], "House", "Apartment", "Condo", "Studio", "Loft"]), :class => 'genForm_dropBox' %>
   </div>
   <div class="form-group">
-      <%=f.text_field :availability%>
-  </div>
+    <%= f.select :availability, options_for_select([["Select Availability", ""], "Available", "Occupied", "Available soon"]), :class => 'genForm_dropBox' %>
+
+   </div>
   <div class="form-group">
       <%=f.number_field :price%>
   </div>
@@ -23,7 +24,7 @@
   </div>
 
   <div class="form-group">
-    <%=f.text_area :description,:value => "Add details here. Ex: Sq. feets: 900 " , cols: 20, rows: 20 %>
+    <%=f.text_area :description,:value => "Add details here. Ex: Sq. feets: 900" , cols: 20, rows: 20 %>
   </div>
   <div class="form-group">
     <%=f.text_field :street%>
