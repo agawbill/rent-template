@@ -4,11 +4,10 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
   root "properties#welcome"
+  
   resources :properties do 
-  	member do 
-  		put "like", to: "properties#upvote"
-  	end
-  end
+  resources :comments
+end
   resources :rents
   resources :claims
 

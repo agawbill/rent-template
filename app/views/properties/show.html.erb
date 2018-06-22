@@ -1,5 +1,5 @@
 
-<%= render 'properties/gallery' %>
+
 <div class='row'>
 
   <div class='propertyPageEmpty col-lg-12'>
@@ -64,7 +64,7 @@
 
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <%= render 'properties/rentform.htlm.erb' %>
+           
             <div style="width: 100%;"  class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">Description</h3>
@@ -82,8 +82,20 @@
 
 <div class='propertyInfoOnShowPage col-lg-12'>
 
-
-      <%= render 'properties/map' %>
+      
+      <h2><%=@property.comments.count %> Comments</h2>
+      
+      <h3>Leave a comment</h3>
+      <%= render "comments/form" %>
+      
+      <%@property.comments.each do |c|%>
+      <div><%=c.content%></div>
+      <%end%>
 
   </div>
 </div>
+
+
+
+
+

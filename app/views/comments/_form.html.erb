@@ -1,0 +1,7 @@
+<%= form_for([@property, @property.comments.build]) do |f| %>
+<p>
+<%= f.label :content %>
+<%= f.text_area :content %>
+</p>
+<%= f.submit %>
+<% end %>
