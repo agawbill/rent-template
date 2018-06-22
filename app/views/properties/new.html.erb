@@ -1,41 +1,48 @@
 
 <div class='container'>
-  <h1>Property information</h1>
 
-<%= form_for @property, html: {multipart: true} do |f| %>
+  <h1>Add a new Property</h1>
+
+
+<%= bootstrap_form_for @property, html: {multipart: true} do |f| %>
   <div class="form-group">
-  Title:    <%=f.text_field :title%>
+      <%=f.text_field :title%>
     </div>
   <div class="form-group">
-  Property type:    <%=f.text_field :kind%>
+    <%= f.select :kind, options_for_select([["Select Property Type", ""], "House", "Apartment", "Condo", "Studio", "Loft"]), :class => 'genForm_dropBox' %>
   </div>
   <div class="form-group">
-  Availability:    <%=f.text_field :availability%>
-  </div>
-  <div class="form-group">
-  Price:    <%=f.number_field :price%>
-  </div>
-  <div class="form-group">
-  Lat:    <%=f.number_field :lat%>
-  </div>
-  <div class="form-group">
-  Lng:    <%=f.number_field :lng%>
-  </div>
+
+    <%= f.select :availability, options_for_select([["Select Availability", ""], "Available", "Occupied", "Available soon"]), :class => 'genForm_dropBox' %>
+
+   </div>
 
   <div class="form-group">
-  Description:    <%=f.text_area :description%>
+      <%=f.number_field :price%>
+  </div>
+  <!-- <div class="form-group">
+      <%=f.number_field :lat, value: number_to_currency(f.object.lat.to_f, delimiter: '', unit: ''), step: :any%>
   </div>
   <div class="form-group">
-  Street:    <%=f.text_field :street%>
+      <%=f.number_field :lng, value: number_to_currency(f.object.lng.to_f, delimiter: '', unit: ''), step: :any%>
+  </div> -->
+
+  <div class="form-group">
+
+    <%=f.text_area :description,:value => "Add details here. Ex: Sq. feets: 900" , cols: 20, rows: 20 %>
   </div>
   <div class="form-group">
-  Apt #:    <%=f.text_field :apt%>
+    <%=f.text_field :street%>
+
   </div>
   <div class="form-group">
-  City:    <%=f.text_field :city%>
+    <%=f.text_field :apt%>
   </div>
   <div class="form-group">
-  State:    <%=f.text_field :state%>
+    <%=f.text_field :city%>
+  </div>
+  <div class="form-group">
+    <%=f.text_field :state%>
   </div>
   <div>
     <h3>Image of property</h3>
@@ -45,9 +52,4 @@
 <%=f.submit %>
 <% end %>
 
-
-
-
-
-
-
+</div>

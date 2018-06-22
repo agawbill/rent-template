@@ -2,11 +2,17 @@ class PropertiesController < ApplicationController
     before_action :find_property, only: [:upvote]
   def index
     @properties = Property.all
+
   end
 
   def show
       @property = Property.find(params[:id])
       @comments= Comment.all
+      @lat = @property.lat
+      @lng = @property.lng
+      @apiKey=ENV['API_KEY']
+      @rent=Rent.new
+
 
   end
 
@@ -29,10 +35,16 @@ class PropertiesController < ApplicationController
       redirect_to "/properties/new"
     end
   end
+end
+
 
   def edit
+    if current_admin
     @property = Property.find(params[:id])
+  else
+    redirect_to "/properties"
   end
+end
 
   def update
     @property = Property.find(params[:id])
@@ -41,7 +53,7 @@ class PropertiesController < ApplicationController
         redirect_to "/properties"
       else
         flash[:error] = "please try again"
-        render edit_property
+        render edit_property_path
       end
   end
 
@@ -60,7 +72,7 @@ class PropertiesController < ApplicationController
 private
 
   def property_params
-    params.require(:property).permit(:title, :kind, :admin_id, :availability, :price, :lat, :lng, :description, :street, :apt, :city, :state, :image)
+    params.require(:property).permit(:title, :kind, :admin_id, :availability, :price, :description, :street, :apt, :city, :state, :image)
   end
 
   def find_property

@@ -1,45 +1,48 @@
 
-<div class='editContainer'>
+<div class='container'>
   <h1>Edit Properties</h1>
 
-<%=form_for @property do |f| %>
+<%=bootstrap_form_for @property do |f| %>
   <div class="form-group">
-  Title:    <%=f.text_field :title%>
+    <%=f.text_field :title%>
     </div>
   <div class="form-group">
-  Property type:    <%=f.text_field :kind%>
+    <%=f.text_field :kind%>
   </div>
   <div class="form-group">
-  Availability:    <%=f.text_field :availability%>
+    <%=f.text_field :availability%>
   </div>
   <div class="form-group">
-  Price:    <%=f.number_field :price%>
+    <%=f.number_field :price%>
   </div>
   <div class="form-group">
-  Lat:    <%=f.number_field :lat%>
+    <%=f.number_field :lat%>
   </div>
   <div class="form-group">
-  Lng:    <%=f.number_field :lng%>
+    <%=f.number_field :lng%>
   </div>
 
   <div class="form-group">
-  Description:    <%=f.text_field :description%>
+   <%=f.text_field :description%>
   </div>
   <div class="form-group">
-  Srteet:    <%=f.text_field :street%>
+    <%=f.text_field :street%>
   </div>
   <div class="form-group">
-  Apt #:    <%=f.text_field :apt%>
+    <%=f.text_field :apt%>
   </div>
   <div class="form-group">
-  City:    <%=f.text_field :city%>
+    <%=f.text_field :city%>
   </div>
   <div class="form-group">
-  State:    <%=f.text_field :state%>
+    <%=f.text_field :state%>
   </div>
-<%=f.submit "Edit" %>
+  <div>
+    <%= f.file_field :image %>
+  </div>
+  <%=f.submit :Submit, class: 'btn btn-lg btn-success' %>
 <% end %>
-
-<%= link_to "Delete", property_path, method: :delete %>
-
+<br>
+<%= link_to "Delete Property",  property_path, method: :delete, class: 'btn btn-lg btn-danger' %>
+<hr>
 </end>

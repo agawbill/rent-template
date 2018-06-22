@@ -1,0 +1,86 @@
+
+<%= render 'properties/gallery' %>
+<div class='row'>
+
+  <div class='propertyPageEmpty col-lg-12'>
+  </div>
+
+  <div class='propertyInfoOnShowPage col-lg-12'>
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6 col-sm-12">
+
+            <h1><%=@property.title%></h1><br>
+            <div class="panel panel-default">
+              <div class="panel-heading">Title</div>
+              <div class="panel-body">
+                <%=@property.title%>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Availability</h3>
+              </div>
+              <div class="panel-body">
+                <%=@property.availability%>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Type of Property</h3>
+              </div>
+              <div class="panel-body">
+                <%=@property.kind%>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Geo Code</h3>
+              </div>
+              <div class="panel-body">
+                Lat: <%=@property.lat%>
+                Lng: <%=@property.lng%>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Description</h3>
+              </div>
+              <div class="panel-body">
+                <%=@property.description%>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Address</h3>
+              </div>
+              <div class="panel-body">
+                <%=@property.street%>
+                <%=@property.apt%>
+                 <%=@property.city%>
+                 <%=@property.state%>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-12">
+
+            <%= render 'properties/rentform.htlm.erb' %>
+
+          </div>
+        </div>
+        </div>
+      </div>
+
+<div class='propertyInfoOnShowPage col-lg-12'>
+
+      <%= render 'properties/map' %>
+
+  </div>
+</div>

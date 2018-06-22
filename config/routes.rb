@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'homes/show'
+
+  devise_scope :user do
+    get 'login', to: 'devise/sessions#new'
+  end
+  devise_scope :user do
+    get 'signup', to: 'devise/registrations#new'
+  end
 
   devise_for :admins
-  devise_for :users
+  devise_for :users, controllers: {
+     registrations: 'users/registrations'
+   }
+
   root "properties#welcome"
   
   resources :properties do 
@@ -10,6 +21,7 @@ Rails.application.routes.draw do
 end
   resources :rents
   resources :claims
+  resources :homes, only: [:show]
 
   # post assign: "rents#assign"
 

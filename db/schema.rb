@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180622150323) do
+
+ActiveRecord::Schema.define(version: 20180621183930) do
+
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 20180622150323) do
     t.integer "admin_id"
   end
 
+
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "property_id"
@@ -48,6 +51,11 @@ ActiveRecord::Schema.define(version: 20180622150323) do
     t.datetime "updated_at", null: false
     t.index ["property_id"], name: "index_comments_on_property_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "image"
+
   end
 
   create_table "properties", force: :cascade do |t|

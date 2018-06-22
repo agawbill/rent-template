@@ -3,7 +3,7 @@ class RentsController < ApplicationController
     @rents=Rent.all
     if !current_admin
     redirect_to "/"
-  end
+    end
   end
 
   def new
@@ -11,22 +11,45 @@ class RentsController < ApplicationController
   end
 
   def show
+    if current_admin || current_user
     @claim=Claim.new
     @rent=Rent.find(params[:id])
+  else
+    redirect_to "/properties"
   end
+end
 
   def assign
     r=Rent.new(rent_params)
     r.property_id=params[:property_id]
     r.user_id=current_user.id
     if r.save
-      redirect_to "/rents"
+      Property.update(r.property_id, {:availability => 'Occupied'})
+      redirect_to "/users/edit"
     else
       render "/"
     end
   end
 
   def edit
+    @rents=Rent.find(params[:id])
+  end
+
+  def update
+    @rents=Rent.find(params[:id])
+    if @rents.save
+      flash[:success] = "rent has been updated"
+      redirect_to "/rents"
+    else
+      flash[:error] = "please try again"
+      render edit_rent_path
+    end
+  end
+
+  def destroy
+    rent = Rent.find(params[:id])
+    rent.destroy
+    redirect_to "/rents"
   end
 
   private

@@ -23,10 +23,15 @@ gem "devise"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "bootstrap_form"
 gem 'jquery-rails'
+
+gem 'social-share-button', '~> 0.1.6'
+
 gem "paperclip", "~> 6.0.0"
+
+
 gem "gmap_coordinates_picker"
 gem 'dotenv-rails'
-gem 'acts_as_votable', '~> 0.11.1'
+gem 'geocoder'
 
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
