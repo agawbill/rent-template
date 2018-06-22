@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
 
+
     before_action :find_property, only: [:upvote]
 
   def index
