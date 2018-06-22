@@ -1,4 +1,5 @@
 class PropertiesController < ApplicationController
+    before_action :find_property, only: [:upvote]
   def index
     @properties = Property.all
   end
@@ -20,11 +21,12 @@ class PropertiesController < ApplicationController
     property.admin_id=current_admin.id
     if property.save
       redirect_to "/properties"
+      # params[:images].each do |picture|
+      # @property.images.create(:images => :property)
     else
       redirect_to "/properties/new"
+    end
   end
-
-end
 
   def edit
     @property = Property.find(params[:id])
@@ -47,9 +49,20 @@ end
     redirect_to "/properties"
   end
 
+    def upvote
+      @property.upvote_by current_user
+      redirect_to "/properties" 
+    end
+
+
 private
 
   def property_params
     params.require(:property).permit(:title, :kind, :admin_id, :availability, :price, :lat, :lng, :description, :street, :apt, :city, :state, :image)
   end
+
+  def find_property
+    @property = Property.find(params[:id])
+  end
+
 end

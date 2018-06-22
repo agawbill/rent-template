@@ -4,7 +4,11 @@
 <%@properties.each do |f|%>
 <a href="/properties/<%=f.id%>"><%=f.title%></a><br>
 <div class='thumb_image'><%= image_tag f.image.url(:medium) %></div><br>
-<%end%>
+	<% @properties.get_upvotes.size %>
+	<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Star
+</button>
+	<% end %>
 
 </div>
 

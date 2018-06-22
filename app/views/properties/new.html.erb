@@ -39,7 +39,8 @@
   </div>
   <div>
     <h3>Image of property</h3>
-    <%= f.file_field :image %>
+    <%= f.file_field 'images[]', type: :file, multiple: true %>
+
   </div>
 <%=f.submit %>
 <% end %>

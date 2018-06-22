@@ -1,47 +1,89 @@
 
-<h1>List of properties</h1>
-<strong><%=@property.title%></strong><br>
-<div><%= image_tag @property.image.url(:large)%></div>
-<%=@property.kind%><br>
-<%=@property.availability%><br>
-<%=@property.price%><br>
-<%=@property.lat%><br>
-<%=@property.lng%><br>
-<%=@property.description%><br>
-<%=@property.street%><br>
-<%=@property.apt%><br>
-<%=@property.city%><br>
-<%=@property.state%><br>
+<%= render 'properties/gallery' %>
+<div class='row'>
 
-<h1>Properties for Rent </h1>
-<p>Find me in app/views/properties/show.html.erb</p>
-Title: <%=@property.title%><br>
-Kind: <%=@property.availability%><br>
-Price: <%=@property.price%><br>
-Latitude: <%=@property.lat%><br>
-Longtude: <%=@property.lng%><br>
-Description: <%=@property.description%><br>
-Street: <%=@property.street%><br>
-Apt: <%=@property.apt%><br>
-City: <%=@property.city%><br>
-State: <%=@property.state%><br>
+  <div class='propertyPageEmpty col-lg-12'>
+  </div>
+
+  <div class='propertyInfoOnShowPage col-lg-12'>
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6 col-sm-12">
+
+            <h1><%=@property.title%></h1><br>
+            <div class="panel panel-default">
+              <div class="panel-heading">Title</div>
+              <div class="panel-body">
+                <%=@property.title%>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Availability</h3>
+              </div>
+              <div class="panel-body">
+                <%=@property.availability%>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Type of Property</h3>
+              </div>
+              <div class="panel-body">
+                <%=@property.kind%>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Geo Code</h3>
+              </div>
+              <div class="panel-body">
+                Lat: <%=@property.lat%>
+                Lng: <%=@property.lng%>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Address</h3>
+              </div>
+              <div class="panel-body">
+                <%=@property.street%>
+                <%=@property.apt%>
+                 <%=@property.city%>
+                 <%=@property.state%>
+              </div>
+            </div>
+
+          </div>
 
 
-
-<h2>Rent property</h2>
-
-<%= form_for :rent, url:{action: 'assign', controller: 'rents'} do |f| %>
-Price: <%=f.text_field :price%><br>
-Status: <%=f.text_field :status%><br>
-Rent date: <%=f.datetime_field :rent_date%><br>
-Devolution date: <%=f.datetime_field :devolution_date%><br>
-<%=f.submit "Rent Property?"%><br>
- 
-
- 
- 
-<%= hidden_field_tag "property_id", @property.id %><br>
- 
-<%end%>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <%= render 'properties/rentform.htlm.erb' %>
+            <div style="width: 100%;"  class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Description</h3>
+              </div>
+              <div class="panel-body">
+                <%=@property.description%>
+              </div>
+            </div>
 
 
+          </div>
+        </div>
+        </div>
+      </div>
+
+<div class='propertyInfoOnShowPage col-lg-12'>
+
+
+      <%= render 'properties/map' %>
+
+  </div>
+</div>
