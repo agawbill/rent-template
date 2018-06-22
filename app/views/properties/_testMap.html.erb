@@ -1,0 +1,39 @@
+<div id="mapAllLocations" >
+</div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%=@apiKey%>" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+    var locations = [
+      ['Brookmont Apartments', 40.1070, -75.0391, 4],
+      ['Core Creek Apartments', 40.120639, -75.1391, 5],
+      ['Cronulla Beach', 40.093133, -75.103149, 3],
+      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+      ['Maroubra Beach', -33.950198, 151.259302, 1]
+    ];
+
+    var mapAllLocations = new google.maps.Map(document.getElementById('mapAllLocations'), {
+      zoom: 10,
+      center: new google.maps.LatLng(40.10, -75.03),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        label: `${i}`,
+        map: mapAllLocations
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(mapAllLocations, marker);
+        }
+      })(marker, i));
+    }
+  </script>

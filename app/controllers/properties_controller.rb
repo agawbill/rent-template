@@ -1,16 +1,21 @@
 class PropertiesController < ApplicationController
   def index
-    @properties = Property.all
-
+    @properties = Property.last(10)
+      @apiKey=ENV['API_KEY']
   end
 
   def show
       @property = Property.find(params[:id])
       @lat = @property.lat
       @lng = @property.lng
-      @apiKey=''
+      @apiKey=ENV['API_KEY']
       @rent=Rent.new
 
+  end
+
+  def showall
+    @properties = Property.all
+      @apiKey=ENV['API_KEY']
   end
 
   def new
