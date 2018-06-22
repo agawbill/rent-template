@@ -30,7 +30,7 @@
               </div>
               <div class="panel-body">
                 <%=@property.availability%>
-                
+
 
               </div>
             </div>
@@ -41,6 +41,14 @@
               </div>
               <div class="panel-body">
                 <%=@property.kind%>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Price of Property Per Day</h3>
+              </div>
+              <div class="panel-body">
+                <%=@property.price%>
               </div>
             </div>
 
@@ -59,10 +67,8 @@
                 <h3 class="panel-title">Address</h3>
               </div>
               <div class="panel-body">
-                <%=@property.street%>
-                <%=@property.apt%>
-                 <%=@property.city%>
-                 <%=@property.state%>
+                <%=@property.address%>
+
 
               </div>
             </div>
@@ -129,3 +135,29 @@
 
   </div>
 </div>
+
+
+<script>
+var rent_devolution_date=document.getElementById('rent_devolution_date')
+var rent_rent_date=document.getElementById('rent_rent_date')
+var rent_price=document.getElementById('rent_price')
+var buttonPrice=document.getElementById('buttonPrice')
+
+var oneDay = 24*60*60*1000;
+var date1= new Date(rent_devolution_date.value)
+var date2= new Date (rent_rent_date.value)
+
+function calculateRealtime(){
+  date1=new Date(rent_devolution_date.value)
+  date2= new Date (rent_rent_date.value)
+  rent_price.value= Math.round(Math.abs(date1.getTime()  - date2.getTime())/(oneDay))*<%=@property.price%>
+}
+
+buttonPrice.addEventListener('click', function(){
+  calculateRealtime()
+});
+
+
+
+
+</script>

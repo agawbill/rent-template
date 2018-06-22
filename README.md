@@ -25,6 +25,6 @@ Things you may want to cover:
 
 To set ENV variable
 
-$ export API_KEY=AIzaSyBQoVF1uACfK40haSfi-ZxKGTEINtmQOpE
+$ export API_KEY=
 
 api key was exported to ENV variable API_KEY

@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20180622161202) do
 
-ActiveRecord::Schema.define(version: 20180621183930) do
 
 
   create_table "admins", force: :cascade do |t|
@@ -78,6 +78,9 @@ ActiveRecord::Schema.define(version: 20180621183930) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.string "houseNumber"
+    t.string "zipcode"
+    t.string "country"
   end
 
   create_table "rents", force: :cascade do |t|

@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
     before_action :find_property, only: [:upvote]
   def index
-    @properties = Property.all
+    @properties = Property.last(10)
 
   end
 
@@ -72,7 +72,7 @@ end
 private
 
   def property_params
-    params.require(:property).permit(:title, :kind, :admin_id, :availability, :price, :description, :street, :apt, :city, :state, :image)
+    params.require(:property).permit(:title, :kind, :admin_id, :availability, :price, :description, :street, :city, :state, :country, :houseNumber, :zipcode, :image)
   end
 
   def find_property
