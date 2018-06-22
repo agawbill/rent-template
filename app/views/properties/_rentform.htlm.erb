@@ -3,9 +3,9 @@
 
 <%= bootstrap_form_for :rent, url:{action: 'assign', controller: 'rents'} do |f| %>
  <%=f.text_field :price%><br>
-  <%=f.text_field :status%><br>
-  <%=f.datetime_field :rent_date%><br>
- <%=f.datetime_field :devolution_date%><br>
+   <%=f.date_field :rent_date, :value => Time.now.strftime('%Y-%m-%d')%><br>
+
+ <%=f.date_field :devolution_date, :value => Time.now %><br>
 <%=f.submit "Rent Property?"%><br>
 <%= hidden_field_tag "property_id", @property.id %><br>
 <%= hidden_field_tag "availability", @property.availability => "unavailable" %><br>

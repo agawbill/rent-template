@@ -21,7 +21,8 @@ margin:0;}
   float: left;
   height: 500px;
   width: 46%;
-  border: 2px solid black;
+  border: 2px solid silver;
+  border-radius: 25px;
   margin-left: 2%;
   margin-top: 4%;
 }
@@ -127,17 +128,29 @@ font-size: 1.1em;
           left: 300px;}
 .navbar {padding: 0;
 margin: 0;}
+img {height: 100%; }
 #myCarousel {padding: 0;
 margin: 0;
+height: 80vh;
 position: absolute;
 top: 0;
 left:0;
 width: 100%;
 z-index: -99;
-height: 100vh;}
+}
 .propertyInfoOnShowPage  {height: 90vh;
                           width: 100%;
-                          border: 3px solid gold;}
+                          border: 3px solid rgb(252, 230, 90);
+
+                       }
 .propertyPageEmpty  {height: 110vh;
                       width: 100%;
+                      margin-bottom: 2%;
  }
+.carousel-caption {margin: 0 auto;}
+#showPropertyImage {width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: -111;
+                    overflow: hidden;}
