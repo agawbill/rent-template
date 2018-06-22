@@ -1,17 +1,22 @@
 
 <div class='container'>
+
   <h1>Add a new Property</h1>
+
 
 <%= bootstrap_form_for @property, html: {multipart: true} do |f| %>
   <div class="form-group">
       <%=f.text_field :title%>
     </div>
   <div class="form-group">
-      <%=f.text_field :kind%>
+    <%= f.select :kind, options_for_select([["Select Property Type", ""], "House", "Apartment", "Condo", "Studio", "Loft"]), :class => 'genForm_dropBox' %>
   </div>
   <div class="form-group">
-      <%=f.text_field :availability, :value => "Available"%>
-  </div>
+
+    <%= f.select :availability, options_for_select([["Select Availability", ""], "Available", "Occupied", "Available soon"]), :class => 'genForm_dropBox' %>
+
+   </div>
+
   <div class="form-group">
       <%=f.number_field :price%>
   </div>
@@ -23,10 +28,12 @@
   </div> -->
 
   <div class="form-group">
-    <%=f.text_area :description,:value => "Add details here. Ex: Sq. feets: 900 " , cols: 20, rows: 20 %>
+
+    <%=f.text_area :description,:value => "Add details here. Ex: Sq. feets: 900" , cols: 20, rows: 20 %>
   </div>
   <div class="form-group">
     <%=f.text_field :street%>
+
   </div>
   <div class="form-group">
     <%=f.text_field :apt%>
@@ -38,10 +45,11 @@
     <%=f.text_field :state%>
   </div>
   <div>
-    <%= f.file_field :image %>
+    <h3>Image of property</h3>
+    <%= f.file_field 'images[]', type: :file, multiple: true %>
+
   </div>
 <%=f.submit %>
 <% end %>
-
 
 </div>

@@ -3,13 +3,13 @@ class ClaimsController < ApplicationController
     if current_admin
     @claims=Claim.all
     @rents=Rent.all
-  else
+    else
     redirect_to "/"
-  end
+    end
   end
 
   def new
-    @claims=Claim.new
+    @claim=Claim.new
   end
 
   def create
@@ -34,10 +34,18 @@ class ClaimsController < ApplicationController
   def update
     @claims= Claim.find(params[:id])
     if @claims.update(claim_params)
-      redirect_to "/claims"
+    flash[:success] = "claim has been updated"
+    redirect_to "/claims"
     else
-      render edit_claim
+    flash[:error] = "please try again"
+    render edit_claim_path
     end
+  end
+
+  def destroy
+    claim = Claim.find(params[:id])
+    claim.destroy
+    redirect_to "/claims"
   end
 
 private

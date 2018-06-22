@@ -2,19 +2,19 @@
 <h1>Claims#new</h1>
 
 
-<%= form_for @claims do |f| %>
+<%= form_for @claim do |f| %>
   <div class="claim_form">
     Price: <%= f.text_field :price %>
-  </div>
+  </div><br>
   <div class="claim_form">
     Status: <%= f.text_field :status %>
-  </div>
+  </div><br>
   <div class="claim_form">
     Type of Claim: <%= f.text_field :type_of_claim %>
-  </div>
+  </div><br>
   <div class="claim_form">
     Description: <%= f.text_field :description %>
-  </div>
+  </div><br>
   <%= f.submit %>
   <% end %>
 
