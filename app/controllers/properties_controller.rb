@@ -46,7 +46,7 @@ end
         redirect_to "/properties"
       else
         flash[:error] = "please try again"
-        render edit_property
+        render edit_property_path
       end
   end
 

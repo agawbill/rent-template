@@ -13,6 +13,11 @@
  /*
  *= require rails_bootstrap_forms
  */
+ /*
+ *= require_tree .
+ *= require social-share-button
+ *= require_self
+ */
  @import "bootstrap-sprockets";
  @import "bootstrap";
 body {padding: 0;
@@ -147,6 +152,18 @@ z-index: -99;
                       width: 100%;
                       margin-bottom: 2%;
  }
+
+
+
+.social-share-button {
+  display: inline-block;
+  position: fixed;
+  left: 1100px;
+  bottom: 500px;
+  width: 30px;
+  height: 30px;
+}
+
 .carousel-caption {margin: 0 auto;}
 #showPropertyImage {width: 100%;
                     position: absolute;
@@ -154,3 +171,4 @@ z-index: -99;
                     left: 0;
                     z-index: -111;
                     overflow: hidden;}
+

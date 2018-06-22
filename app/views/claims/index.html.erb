@@ -3,11 +3,12 @@
 <%@claims.each_with_index do |c, index|%>
   <%@rents.each do |r|%>
     <%if r.id==c.rent_id%>
-      <p><%=index%>: User: <%=User.find(r.user_id).email%><br>
+      <p>User: <%=User.find(r.user_id).email%><br>
         Description: <%=c.description%><br>
         Status: <%=c.status%><br>
         Price: <%=c.price%><br>
         Type: <%=c.type_of_claim%><br></p>
+        <div><a href="/claims/<%=c.id %>/edit">/">"Edit Claims"</a></div>
         <%end%>
       <%end%>
     <%end%>

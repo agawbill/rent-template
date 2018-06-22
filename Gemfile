@@ -24,6 +24,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "bootstrap_form"
 gem 'jquery-rails'
 
+gem 'social-share-button', '~> 0.1.6'
 
 gem "paperclip", "~> 6.0.0"
 

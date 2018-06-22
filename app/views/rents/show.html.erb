@@ -2,8 +2,14 @@
 <p>Find me in app/views/rents/show.html.erb</p>
 
 <div class='container'>
-  <h1>Property#new</h1>
+Price: <%= @rent.price %><br>
+Status: <%= @rent.status %><br>
+Rent Date: <%= @rent.rent_date %><br>
+devolution_Date: <%= @rent.devolution_date %><br>
+
+
 <% if current_admin%>
+<h1>Create#claim</h1>
 <%=form_for @claim do |f| %>
   <div class="form-group">
   Description:    <%=f.text_field :description%>
@@ -20,7 +26,8 @@
   <div class="form-group">
   <%= hidden_field_tag "rent_id", @rent.id %>
 </div>
-<%=f.submit %>
+<%=f.submit %><br>
+<%= link_to "Edit", edit_property_path %>
 <% end %>
 <%end%>
 </end>
