@@ -1,6 +1,8 @@
 
 <div class='container'>
+
   <h1>Add a new Property</h1>
+
 
 <%= bootstrap_form_for @property, html: {multipart: true} do |f| %>
   <div class="form-group">
@@ -26,10 +28,12 @@
   </div> -->
 
   <div class="form-group">
+
     <%=f.text_area :description,:value => "Add details here. Ex: Sq. feets: 900" , cols: 20, rows: 20 %>
   </div>
   <div class="form-group">
     <%=f.text_field :street%>
+
   </div>
   <div class="form-group">
     <%=f.text_field :apt%>
@@ -41,7 +45,9 @@
     <%=f.text_field :state%>
   </div>
   <div>
-    <%= f.file_field :image %>
+    <h3>Image of property</h3>
+    <%= f.file_field 'images[]', type: :file, multiple: true %>
+
   </div>
 <%=f.submit %>
 <% end %>

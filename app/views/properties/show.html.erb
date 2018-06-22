@@ -1,6 +1,7 @@
 
 <div class='row'>
 
+
   <div  class='propertyPageEmpty col-lg-12'>
     <img id="showPropertyImage" src="<%=@property.image.url%>"/>
   </div>
@@ -95,6 +96,20 @@
                 <%=@property.description%>
               </div>
             </div>
+
+            <div class='propertyInfoOnShowPage col-lg-12 container'>
+
+    
+      <h2><%=@property.comments.count %> Reviews</h2>  
+      <h3>Leave a review</h3>
+      <%= render "comments/form" %>
+      <%@comments.each do |c|%>
+      <%if @property.id == c.property_id%>
+     <div>From:<%=User.find(c.user_id).email%><strong><br><%= c.content %></div></strong><hr>
+      <%end%>
+      <%end%>
+  </div>
+</div>
 
 
           </div>

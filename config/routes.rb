@@ -15,7 +15,10 @@ Rails.application.routes.draw do
    }
 
   root "properties#welcome"
-  resources :properties
+  
+  resources :properties do 
+  resources :comments
+end
   resources :rents
   resources :claims
   resources :homes, only: [:show]
