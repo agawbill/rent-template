@@ -30,6 +30,8 @@
               </div>
               <div class="panel-body">
                 <%=@property.availability%>
+
+
               </div>
             </div>
 
@@ -41,7 +43,6 @@
                 <%=@property.kind%>
               </div>
             </div>
-
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">Price of Property Per Day</h3>
@@ -75,7 +76,9 @@
           </div>
 
 
-
+          <!-- <div class="col-lg-6 col-md-6 col-sm-12">
+            <%= render 'properties/rentform.htlm.erb' %>
+ -->
 
           <div class="col-lg-6 col-md-6 col-sm-12">
 
@@ -100,6 +103,21 @@
               </div>
             </div>
 
+            <div class='propertyInfoOnShowPage col-lg-12 container'>
+
+
+      <h2><%=@property.comments.count %> Reviews</h2>
+      <h3>Leave a review</h3>
+      <%= render "comments/form" %>
+      <%@comments.each do |c|%>
+      <%if @property.id == c.property_id%>
+     <div>From:<%=User.find(c.user_id).email%><strong><br><%= c.content %></div></strong><hr>
+      <%end%>
+      <%end%>
+  </div>
+</div>
+
+
           </div>
         </div>
         </div>
@@ -107,38 +125,15 @@
 
 <div class='propertyInfoOnShowPage col-lg-12'>
 
-    <div class="container">
-        <h1> Neighborhood tour </h1>
-      </div>
+
+<div class="container">
+<h1> Neighborhood tour </h1>
+</div>
+
 
       <%= render 'properties/map' %>
 
-</div>
-<div class='propertyInfoOnShowPage col-lg-12'>
-
-    <div class="container">
-        <h1>  Reviews </h1>
-      </div>
-
-
-    <div class='container'>
-
-    <h2><%=@property.comments.count %> Reviews</h2>
-    <h3>Leave a review</h3>
-    <%= render "comments/form" %>
-    <%@comments.each do |c|%>
-    <%if @property.id == c.property_id%>
-    <div>From : <strong><%= User.find(c.user_id).email%><strong><br>
-      <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-      <%= c.content %></div></strong><hr>
-    <%end%>
-    <%end%>
-    </div>
-    </div>
-
-</div>
-
-
+  </div>
 </div>
 
 
@@ -155,10 +150,20 @@ var date2= new Date (rent_rent_date.value)
 function calculateRealtime(){
   date1=new Date(rent_devolution_date.value)
   date2= new Date (rent_rent_date.value)
+  if(date2>date1){
+    rent_price.value="Check your dates..."
+  }
+  else{
   rent_price.value= Math.round(Math.abs(date1.getTime()  - date2.getTime())/(oneDay))*<%=@property.price%>
 }
 
-buttonPrice.addEventListener('click', function(){
+}
+
+rent_devolution_date.addEventListener('input', function(){
+  calculateRealtime()
+});
+
+rent_rent_date.addEventListener('input', function(){
   calculateRealtime()
 });
 
@@ -166,5 +171,3 @@ buttonPrice.addEventListener('click', function(){
 
 
 </script>
-
-  <%= render 'layouts/footer' %>
