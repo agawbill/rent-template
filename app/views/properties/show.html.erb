@@ -76,9 +76,9 @@
           </div>
 
 
-          <div class="col-lg-6 col-md-6 col-sm-12">
+          <!-- <div class="col-lg-6 col-md-6 col-sm-12">
             <%= render 'properties/rentform.htlm.erb' %>
-
+ -->
 
           <div class="col-lg-6 col-md-6 col-sm-12">
 
@@ -105,8 +105,8 @@
 
             <div class='propertyInfoOnShowPage col-lg-12 container'>
 
-    
-      <h2><%=@property.comments.count %> Reviews</h2>  
+
+      <h2><%=@property.comments.count %> Reviews</h2>
       <h3>Leave a review</h3>
       <%= render "comments/form" %>
       <%@comments.each do |c|%>
@@ -150,10 +150,20 @@ var date2= new Date (rent_rent_date.value)
 function calculateRealtime(){
   date1=new Date(rent_devolution_date.value)
   date2= new Date (rent_rent_date.value)
+  if(date2>date1){
+    rent_price.value="Check your dates..."
+  }
+  else{
   rent_price.value= Math.round(Math.abs(date1.getTime()  - date2.getTime())/(oneDay))*<%=@property.price%>
 }
 
-buttonPrice.addEventListener('click', function(){
+}
+
+rent_devolution_date.addEventListener('input', function(){
+  calculateRealtime()
+});
+
+rent_rent_date.addEventListener('input', function(){
   calculateRealtime()
 });
 
