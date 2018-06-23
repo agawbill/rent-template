@@ -6,7 +6,7 @@
     <img id="showPropertyImage" src="<%=@property.image.url%>"/>
   </div>
 
-  <div class='propertyInfoOnShowPage col-lg-12'>
+  <div class='propertyInfoOnShowPage11 col-lg-12'>
       <div class="container">
 
         <div class="row">
@@ -109,18 +109,7 @@
               </div>
             </div>
 
-            <div class='propertyInfoOnShowPage col-lg-12 container'>
 
-
-      <h2><%=@property.comments.count %> Reviews</h2>
-      <h3>Leave a review</h3>
-      <%= render "comments/form" %>
-      <%@comments.each do |c|%>
-      <%if @property.id == c.property_id%>
-     <div>From:<%=User.find(c.user_id).email%><strong><br><%= c.content %></div></strong><hr>
-      <%end%>
-      <%end%>
-  </div>
 </div>
 
 
@@ -140,6 +129,23 @@
       <%= render 'properties/map' %>
 
   </div>
+
+
+
+
+
+  <div class='propertyInfoOnShowPage col-lg-12 container'>
+
+
+<h2><%=@property.comments.count %> Reviews</h2>
+<h3>Leave a review</h3>
+<%= render "comments/form" %>
+<%@comments.each do |c|%>
+<%if @property.id == c.property_id%>
+<div>From:<%=User.find(c.user_id).email%><strong><br><%= c.content %></div></strong><hr>
+<%end%>
+<%end%>
+</div>
 </div>
 
 
