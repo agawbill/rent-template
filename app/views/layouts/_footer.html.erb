@@ -1,0 +1,143 @@
+
+<style>
+
+.wrapperFollowLinks {
+   width: 100%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.social-box {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.sharer {
+  display: flex;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 28%;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  font-size: 28px;
+}
+
+.sharer, .sharer::before, .sharer::after {
+  font-family: helvetica, arial, sans-serif;
+}
+
+.sharer:hover .fa {
+  display: none;
+}
+
+.sharer:hover::before {
+  top: -40%;
+}
+
+.sharer.success::before {
+  top: -208%;
+}
+
+.sharer:hover::after {
+  display: flex;
+}
+
+.sharer.success.success::after {content: "Success!";}
+.fb.sharer.success::after {color: #3B5998;}
+.tr.sharer.success::after {color: #00ACED;}
+.pi.sharer.success::after {color: #C92228;}
+
+
+.sharer::before {
+  display: block;
+  content: "";
+  z-index: 5;
+  position: absolute;
+  top: 127%;
+  left: -40%;
+  align-items: center;
+  width: 180%;
+  height: 180%;
+  transition: all .65s cubic-bezier(.64,0,.34,1.5);
+  transform: rotate(45deg);
+}
+
+.fb.sharer::before {background-color: #3B5998;}
+.tr.sharer::before {background-color: #00ACED;}
+.pi.sharer::before {background-color: #C92228;}
+
+.sharer::after {
+  display: none;
+  position: relative;
+  margin: auto;
+  z-index: 10;
+  font-size: .45em;
+  line-height: 1.3em;
+  color: #fff;
+  transition: all .3s cubic-bezier(.64,0,.34,1.5);
+}
+
+.fb.sharer::after {content:"follow on fb";}
+.tr.sharer::after {content:"follow on tw";}
+.pi.sharer::after {content:"follow on pn";}
+
+.fa {
+  margin: auto;
+}
+
+.fa-facebook {
+  color: #3B5998;
+  font-size: .88em;
+}
+.fa-twitter {
+  color: #00ACED;
+}
+.fa-pinterest-p {
+  color: #C92228;
+  font-size: .95em;
+}
+
+</style>
+
+
+<div class="footer">
+<div class="wrapperFollowLinks">
+  <div class="social-box">
+    <a href="https://www.facebook.com/RentingBusinessApp/">
+      <div class="fb sharer">
+        <i class="fa fab fa-facebook-f"></i>
+      </div>
+    </a>
+    <a href="#">
+      <div class="tr sharer">
+        <i class="fa fa-twitter"></i>
+      </div>
+    </a>
+    <a href="#">
+      <div class="pi sharer">
+        <i class="fa fa-pinterest-p"></i>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+</div>
+<script>
+function addMsg(event) {
+    var clickedButton = event.target;
+    clickedButton.classList.add("success");
+}
+
+
+var buttons = document.getElementsByClassName("sharer");
+
+for(var i = 0; i < buttons.length; i += 1) {
+    buttons[i].addEventListener("click", addMsg, false);
+}
+</script>

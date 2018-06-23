@@ -3,6 +3,8 @@ class PropertiesController < ApplicationController
   def index
     @properties = Property.last(10)
 
+      @apiKey=ENV['API_KEY']
+
   end
 
   def show
@@ -14,6 +16,11 @@ class PropertiesController < ApplicationController
       @rent=Rent.new
 
 
+  end
+
+  def showall
+    @properties = Property.all
+      @apiKey=ENV['API_KEY']
   end
 
   def new
@@ -35,7 +42,11 @@ class PropertiesController < ApplicationController
       redirect_to "/properties/new"
     end
   end
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 8c2c9d3039de42c96207828ab5a5d686b193d5d2
 
 
   def edit
