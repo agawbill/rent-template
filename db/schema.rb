@@ -12,8 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20180622161202) do
 
-
-
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -42,7 +40,6 @@ ActiveRecord::Schema.define(version: 20180622161202) do
     t.integer "admin_id"
   end
 
-
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "property_id"
@@ -55,7 +52,6 @@ ActiveRecord::Schema.define(version: 20180622161202) do
 
   create_table "images", force: :cascade do |t|
     t.string "image"
-
   end
 
   create_table "properties", force: :cascade do |t|
