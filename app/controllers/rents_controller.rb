@@ -27,7 +27,7 @@ end
       Property.update(r.property_id, {:availability => 'Occupied'})
       redirect_to "/users/edit"
     else
-      render "/"
+      render "/assign"
     end
   end
 

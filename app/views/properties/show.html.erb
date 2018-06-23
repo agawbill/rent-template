@@ -76,14 +76,20 @@
           </div>
 
 
-          <!-- <div class="col-lg-6 col-md-6 col-sm-12">
-            <%= render 'properties/rentform.htlm.erb' %>
- -->
 
           <div class="col-lg-6 col-md-6 col-sm-12">
 
           <% if user_signed_in? %>
-            <%= render 'properties/rentform.htlm.erb' %>
+
+
+
+
+            <%= render 'properties/rentform.html.erb' %>
+
+
+
+
+            
             <% else %>
             <div>
               <br>
@@ -150,17 +156,20 @@ var date2= new Date (rent_rent_date.value)
 function calculateRealtime(){
   date1=new Date(rent_devolution_date.value)
   date2= new Date (rent_rent_date.value)
+  rent_price.value= Math.round(Math.abs(date1.getTime()  - date2.getTime())/(oneDay))*<%=@property.price%>
+
   if(date2>date1){
     rent_price.value="Check your dates..."
   }
   else{
   rent_price.value= Math.round(Math.abs(date1.getTime()  - date2.getTime())/(oneDay))*<%=@property.price%>
-}
+  }
 
 }
 
 rent_devolution_date.addEventListener('input', function(){
   calculateRealtime()
+
 });
 
 rent_rent_date.addEventListener('input', function(){
