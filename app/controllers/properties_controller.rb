@@ -42,7 +42,7 @@ class PropertiesController < ApplicationController
       redirect_to "/properties/new"
     end
   end
-end
+ 
 
 
   def edit
@@ -72,7 +72,7 @@ end
 
     def upvote
       @property.upvote_by current_user
-      redirect_to "/properties" 
+      redirect_to "/properties"
     end
 
 
