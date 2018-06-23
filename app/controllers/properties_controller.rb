@@ -42,8 +42,11 @@ class PropertiesController < ApplicationController
       redirect_to "/properties/new"
     end
   end
- 
 
+def about
+  @apiKey=ENV['API_KEY']
+
+ end
 
   def edit
     if current_admin

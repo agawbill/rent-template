@@ -1,16 +1,33 @@
-<h1>Rents#index</h1>
-<p>Find me in app/views/rents/index.html.erb</p>
+<iframe class="editIframe"  src="https://www.youtube.com/embed/b4nxxqa4Pdg?autoplay=1&controls=0&loop=1&list=PLQmom3TCTIdxE5LtGYLQ5rcKYV81ldta9;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+
+
+<div style="color: silver; background:none;" class='container'>
+  <h1>Rents:</h1>
+
+
+  <div class="row">
+
+
 
 <%@rents.each_with_index do |r, index|%>
-<p><%=User.find(r.user_id).email%><br>
-<li>Devolution: <%=r.devolution_date%></li>
-<li>Rent date: <%=r.rent_date%></li>
-<li>Price: <%=r.price%></li>
-<li>Status: <%=r.status%></li>
-<br>
-  <a href="/rents/<%=r.id%>">Rent Status</a><br>
-  <a href="/claims/<%=r.id%>/edit">Edit Claim</a>
+  <div class="col-lg-4 col-md-6 col-sm-12">
+
+<div class="panel panel-default">
+  <div class="panel-heading"><%=User.find(r.user_id).email%></div>
+  <div class="panel-body">
+
+    <li>Devolution: <%=r.devolution_date%></li>
+    <li>Rent date: <%=r.rent_date%></li>
+    <li>Price: <%=r.price%></li>
+    <li>Status: <%=r.status%></li>
+    <br>
+      <a class="btn btn-sm btn-primary" href="/rents/<%=r.id%>">Rent Status</a><br>
+      <a class="btn btn-sm btn-warning pull-right" href="/claims/<%=r.id%>/edit">Edit Claim</a>
 
   </div>
-
+</div>
+</div>
 <%end%>
+</div>
+</div>

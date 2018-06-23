@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=@apiKey%>" type="text/javascript"></script>
+
     <% unless controller_name=="properties" && action_name=='welcome' %>
 
        <%= render 'layouts/navbar' %>
@@ -20,7 +22,7 @@
        <% end %>
 
        <%= yield %>
-      
+
 
      </body>
    </html>

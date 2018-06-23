@@ -70,6 +70,7 @@ body {padding: 0;
   height: 100%;
 }
 #mapAllLocations {
+  opacity: 0.8;
   margin: 0 auto;
   border: 3px solid silver;
   border-radius: 25px;
@@ -114,6 +115,12 @@ body {padding: 0;
                 background: #fcfcfa;
                 color: #818078;
                }
+    #aboutUS{position: absolute;
+      top: 20vh;
+      left: 5%;
+      font-size: 1.2em;
+    color: ivory;}
+
 #yellowHR {border: 2px solid rgb(252, 230, 90)}
     .avatar {position: absolute;
         top:60px;
@@ -232,6 +239,17 @@ iframe {pointer-events: none;
         top: -56px;
         left: 0;
         z-index: -111;}
+
+.editIframe {pointer-events: none;
+        width: 100%;
+        overflow: hidden;
+        height: 115vh;
+        position: absolute;
+        top: -50px;
+        left: 0;
+        z-index: -111;
+      opacity: 0.7;}
+
 .heightDetermined {height: 60vh; margin-bottom: 30px;}
 
 
