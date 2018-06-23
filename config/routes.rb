@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get "/properties/showall" => "properties#showall"
+  get "/properties/about" => "properties#about"
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
@@ -15,8 +16,8 @@ Rails.application.routes.draw do
    }
 
   root "properties#welcome"
-  
-  resources :properties do 
+
+  resources :properties do
   resources :comments
 end
   resources :rents
