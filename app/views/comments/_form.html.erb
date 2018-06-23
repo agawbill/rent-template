@@ -1,6 +1,6 @@
 <%= bootstrap_form_for([@property, @property.comments.build]) do |f| %>
-<p> 
+<p>
 <%= f.text_area :content %>
 </p>
-<%= f.submit %>
+ <%= f.submit :class => 'btn btn-lg btn-primary'%>  
 <% end %>
