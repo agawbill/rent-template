@@ -21,7 +21,7 @@ class Property < ApplicationRecord
   after_validation :geocode, if: :street_changed?, if: :city_changed?, if: :state_changed?, if: :houseNumber_changed?, if: :country_changed?, if: :zipcode_changed?
 
   validates :price, numericality: { greater_than: 0,  only_integer: true }, presence: true
-  validates :zipcode, numericality: { greater_than: 0, less_than: 8,  only_integer: true }
+  validates :zipcode, numericality: { greater_than: 0, less_than: 100000,  only_integer: true }
   validates_presence_of :title
   validates :kind, presence: true
   validates :city, presence: true
