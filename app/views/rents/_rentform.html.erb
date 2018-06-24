@@ -2,6 +2,11 @@
 
 
 <%= bootstrap_form_for :rent, url:{action: 'assign', controller: 'rents'} do |f| %>
+
+
+   <%= flash[:errors]  %>
+
+
  <%=f.text_field :price, :readonly => true%> <br>
    <%=f.date_field :rent_date, :value => Time.now.strftime('%Y-%m-%d'), class: :rentDate%> <br>
 

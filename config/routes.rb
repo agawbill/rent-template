@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :documents
   get "/properties/showall" => "properties#showall"
   get "/properties/about" => "properties#about"
 

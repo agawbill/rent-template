@@ -32,6 +32,8 @@ gem "paperclip", "~> 6.0.0"
 gem "gmap_coordinates_picker"
 gem 'dotenv-rails'
 gem 'geocoder'
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
 
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
