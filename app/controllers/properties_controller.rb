@@ -37,7 +37,7 @@ class PropertiesController < ApplicationController
       redirect_to "/properties/new"
     end
   end
-end
+
 
 
   def edit
