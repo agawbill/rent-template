@@ -32,13 +32,15 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    property = Property.new(property_params)
-    property.admin_id=current_admin.id
-    if property.save
+    @property = Property.new(property_params)
+    @property.admin_id=current_admin.id
+    if @property.save
       redirect_to "/properties"
       # params[:images].each do |picture|
       # @property.images.create(:images => :property)
     else
+      # @property = Property.new
+      flash[:error] = @property.errors.full_messages.to_sentence
       redirect_to "/properties/new"
     end
   end
