@@ -42,7 +42,7 @@ class PropertiesController < ApplicationController
       redirect_to "/properties/new"
     end
   end
- 
+
 
 def about
   @apiKey=ENV['API_KEY']
@@ -74,10 +74,6 @@ end
     redirect_to "/properties"
   end
 
-    def upvote
-      @property.upvote_by current_user
-      redirect_to "/properties"
-    end
 
 
 private

@@ -20,16 +20,21 @@ class RentsController < ApplicationController
 end
 
   def assign
-    r=Rent.new(rent_params)
-    r.property_id=params[:property_id]
-    r.user_id=current_user.id
-    if r.save
-      Property.update(r.property_id, {:availability => 'Occupied'})
+    @rent=Rent.new(rent_params)
+    @rent.property_id=params[:property_id]
+    @rent.user_id=current_user.id
+    if @rent.save
+      Property.update(@rent.property_id, {:availability => 'Occupied'})
       redirect_to "/users/edit"
     else
-      render "/assign"
+
+
+      flash[:error] = @rent.errors.full_messages.to_sentence
+      redirect_back(fallback_location: root_path)
+
+      end
     end
-  end
+
 
   def edit
     @rents=Rent.find(params[:id])

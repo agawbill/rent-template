@@ -4,9 +4,10 @@
 <%= bootstrap_form_for :rent, url:{action: 'assign', controller: 'rents'} do |f| %>
 
 
-<span class="errorMessage"><strong><%=flash[:error]%></strong></span><br><br>
+   <%= flash[:errors]  %>
 
- <%=f.text_field :price, :readonly => true%><br>
+
+ <%=f.text_field :price, :readonly => true%> <br>
    <%=f.date_field :rent_date, :value => Time.now.strftime('%Y-%m-%d'), class: :rentDate%> <br>
 
  <%=f.date_field :devolution_date, :value => Time.now, class: :devolDate %><br>

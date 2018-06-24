@@ -68,8 +68,9 @@
       <p> <li> User: <%=current_user.email%><br>
         Status: <%=u.status%><br>
         Price: <%=u.price%><br>
-        Rent date: <%=u.rent_date%><br>
-        Devolution date: <%=u.devolution_date%></li><br></p>
+        Rent date: <%=u.rent_date.strftime('%a, %b %Y')%>  <br>
+        Devolution date: <%=u.devolution_date.try(:strftime, '%a, %b %Y')%>
+      </li><br></p>
       <%end%>
     <%end%>
 
@@ -130,11 +131,14 @@
     <div class="panel panel-info">
       <div class="panel-heading">
         My Documents
-          <span class="badge">0</span>
+          <span class="badge"><%=@user.documents.count%></span>
       </div>
       <div class="panel-body">
-        You haven't uploaded anything yet.
-        <button class="btn btn-sm btn-warning">Upload Document </button>
+            <%= render 'documents/form.html.erb' %><br>
+            <h3>Documents</h3>
+            <%@user.documents.each do |d|%>
+            <li><a href="<%=d.image.url%>"><%=d.name%></a></li>
+            <%end%>
       </div>
     </div>
 

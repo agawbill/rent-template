@@ -1,0 +1,39 @@
+<%= form_for @document, html: { multipart: true } do |f| %>
+  <% if @document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+      <ul>
+      <% @document.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div class="panel-heading">
+    <%= f.label :name %><br>
+  </div>
+  <div class="panel-body">
+    <%= f.text_field :name %>
+  </div>
+
+    <div class="panel-heading">
+    <%= f.label :description %>
+  </div>
+    <div class="panel-body">
+    <%= f.text_area :description %>
+  </div>
+
+    <div class="panel-heading">
+    <%= f.label :image %>
+  </div><br>
+  <div class="panel-body">
+    <%= f.file_field :image, :class => "btn btn-sm btn-warning" %>
+  </div>
+  <div class="panel-body">
+    <%= f.submit :class => "btn btn-sm btn-warning" %>
+  </div>
+
+<% end %>

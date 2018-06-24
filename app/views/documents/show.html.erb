@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @document.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @document.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @document.image %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @document.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>

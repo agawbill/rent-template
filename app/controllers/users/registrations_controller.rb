@@ -20,6 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @claims=Claim.all
     @rent=Rent.all
     @user=User.find(current_user.id)
+    @document=Document.new
     super
 
   end
@@ -27,9 +28,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    rent=Rent.all
+    @claims=Claim.all
+    @rent=Rent.all
+    @user=User.find(current_user.id)
+
+    super
+  end
 
   # DELETE /resource
   # def destroy

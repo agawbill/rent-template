@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          has_many :rents
          has_many :properties, :through => :rents
+         has_many :documents
 end
