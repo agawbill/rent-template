@@ -7,6 +7,10 @@
 
 
 <%= bootstrap_form_for @property, html: {multipart: true} do |f| %>
+
+<span class="errorMessage"><strong><%=flash[:error]%></strong></span><br><br>
+
+
   <div class="form-group">
       <%=f.text_field :title%>
     </div>

@@ -28,16 +28,17 @@ class DocumentsController < ApplicationController
     @document.user_id=current_user.id
 
 
-    respond_to do |format|
+    # respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, notice: 'Document was successfully created.' }
-        format.json { render :show, status: :created, location: @document }
+        redirect_back(fallback_location: root_path)
+        # format.html { redirect_to @document, notice: 'Document was successfully created.' }
+        # format.json { render :show, status: :created, location: @document }
       else
         format.html { render :new }
         format.json { render json: @document.errors, status: :unprocessable_entity }
       end
     end
-  end
+  # end
 
   # PATCH/PUT /documents/1
   # PATCH/PUT /documents/1.json
