@@ -12,7 +12,13 @@
         <div class="field">
           <%= f.email_field :email, autocomplete: "name" %>
         </div>
-      
+
+        <div class="field">
+          <%= f.text_field :firstName, autocomplete: "name" %>
+        </div>
+        <div class="field">
+          <%= f.text_field :lastName, autocomplete: "name" %>
+        </div>
 
         <div class="field">
           <% if @minimum_password_length %>
