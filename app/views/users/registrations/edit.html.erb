@@ -66,8 +66,7 @@
     <%if @user.rents.length != nil%>
       <%@user.rents.each do |u|%>
       <p> <li> User: <%=current_user.email%><br>
-        Status: <%=u.status%><br>
-        Price: <%=u.price%><br>
+         Price: <%=u.price%><br>
         Rent date: <%=u.rent_date.strftime('%a, %b %Y')%>  <br>
         Devolution date: <%=u.devolution_date.try(:strftime, '%a, %b %Y')%>
       </li><br></p>
@@ -111,10 +110,9 @@
 
 
             <p><li> User: <%=User.find(r.user_id).email%><br>
-              Description: <%=c.description%><br>
-              Status: <%=c.status%><br>
-              Price: <%=c.price%><br>
-              Type: <%=c.type_of_claim%></li><br></p>
+               Description: <%=c.description%><br>
+               Price: <%=c.price%><br>
+               Type: <%=c.type_of_claim%></li><br></p>
 
               <%end%>
 
@@ -135,18 +133,28 @@
       </div>
       <div class="panel-body">
             <%= render 'documents/form.html.erb' %><br>
-            <h3>Documents</h3>
-            <%@user.documents.each do |d|%>
-            <li><a href="<%=d.image.url%>"><%=d.name%></a></li>
-            <%end%>
+
+            <div class="list-group">
+  <a href="#" class="list-group-item active">
+  Uploaded Documents
+  </a>
+  <%@user.documents.each do |d|%>
+
+ <a class="list-group-item" href="<%=d.image.url%>">Document Name: <%=d.name%></a>
+  <%end%>
+
+</div>
+<hr>
+   <div class="panel-body">
+     <h3>Cancel my account</h3>
+     <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+   </div>
+
+
       </div>
     </div>
 
-     <hr>
-        <div class="panel-body">
-          <h3>Cancel my account</h3>
-          <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-        </div>
+
   </div>
 
 </div>
