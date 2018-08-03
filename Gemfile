@@ -10,8 +10,12 @@ end
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 
+group :development, :test do
+  gem 'sqlite3'
+end
+
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.18'
 end
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -61,7 +65,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'sqlite3'
+
 
   gem 'selenium-webdriver'
 end
