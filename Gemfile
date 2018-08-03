@@ -13,6 +13,13 @@ gem 'rails', '~> 5.1.4'
 group :development, :test do
   gem "bootstrap_form"
   gem 'sqlite3'
+  gem "gmap_coordinates_picker"
+  gem 'dotenv-rails'
+  gem 'geocoder'
+  gem 'carrierwave', '~> 0.10.0'
+
+  gem "paperclip", "~> 6.0.0"
+
 end
 
 group :production do
@@ -34,13 +41,8 @@ gem 'jquery-rails'
 
 gem 'social-share-button', '~> 0.1.6'
 
-gem "paperclip", "~> 6.0.0"
 
 
-gem "gmap_coordinates_picker"
-gem 'dotenv-rails'
-gem 'geocoder'
-gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 
 
