@@ -11,6 +11,7 @@ gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 
 group :development, :test do
+  gem "bootstrap_form"
   gem 'sqlite3'
 end
 
@@ -28,7 +29,7 @@ gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'rails_admin_rollincode', '~> 1.0'
 gem "devise"
 gem 'bootstrap-sass', '~> 3.3.6'
-gem "bootstrap_form"
+
 gem 'jquery-rails'
 
 gem 'social-share-button', '~> 0.1.6'
