@@ -1,35 +1,50 @@
+<iframe class="editIframe"  src="https://www.youtube.com/embed/b4nxxqa4Pdg?autoplay=1&controls=0&loop=1&list=PLQmom3TCTIdxE5LtGYLQ5rcKYV81ldta9;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
 
 <div class='container'>
-  <h1>Edit Properties</h1>
 
-<%=bootstrap_form_for @property do |f| %>
+  <h1>Add a new Property</h1>
+
+
+<%= bootstrap_form_for @property, html: {multipart: true} do |f| %>
+
+<span class="errorMessage"><strong><%=flash[:error]%></strong></span><br><br>
+
+
   <div class="form-group">
-    <%=f.text_field :title%>
+      <%=f.text_field :title%>
     </div>
   <div class="form-group">
-    <%=f.text_field :kind%>
+    <%= f.select :kind, options_for_select([["Select Property Type", ""], "House", "Apartment", "Condo", "Studio", "Loft"]), :class => 'genForm_dropBox' %>
   </div>
   <div class="form-group">
-    <%=f.text_field :availability%>
+
+    <%= f.select :availability, options_for_select([["Select Availability", ""], "Available", "Occupied", "Available soon"]), :class => 'genForm_dropBox' %>
+
+   </div>
+
+  <div class="form-group">
+      <%=f.number_field :price%>
+  </div>
+  <!-- <div class="form-group">
+      <%=f.number_field :lat, value: number_to_currency(f.object.lat.to_f, delimiter: '', unit: ''), step: :any%>
   </div>
   <div class="form-group">
-    <%=f.number_field :price%>
-  </div>
+      <%=f.number_field :lng, value: number_to_currency(f.object.lng.to_f, delimiter: '', unit: ''), step: :any%>
+  </div> -->
+
   <div class="form-group">
-    <%=f.number_field :lat%>
-  </div>
-  <div class="form-group">
-    <%=f.number_field :lng%>
+
+    <%=f.text_area :description,:value => "Add details here. Ex: Sq. feets: 900" , cols: 20, rows: 20 %>
   </div>
 
   <div class="form-group">
-   <%=f.text_field :description%>
+
+    <%=f.text_field :houseNumber%>
+
   </div>
   <div class="form-group">
     <%=f.text_field :street%>
-  </div>
-  <div class="form-group">
-    <%=f.text_field :apt%>
   </div>
   <div class="form-group">
     <%=f.text_field :city%>
@@ -37,12 +52,18 @@
   <div class="form-group">
     <%=f.text_field :state%>
   </div>
-  <div>
-    <%= f.file_field :image %>
+  <div class="form-group">
+    <%=f.text_field :zipcode%>
   </div>
-  <%=f.submit :Submit, class: 'btn btn-lg btn-success' %>
+  <div class="form-group">
+    <%=f.text_field :country%>
+  </div>
+  <div>
+    <h3>Image of property</h3>
+    <%= f.file_field 'image', type: :file %>
+
+  </div>
+<%=f.submit %>
 <% end %>
-<br>
-<%= link_to "Delete Property",  property_path, method: :delete, class: 'btn btn-lg btn-danger' %>
-<hr>
-</end>
+
+</div>
