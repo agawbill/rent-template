@@ -11,14 +11,9 @@ gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 
 group :development, :test do
-  gem "bootstrap_form"
-  gem 'sqlite3'
-  gem "gmap_coordinates_picker"
-  gem 'dotenv-rails'
-  gem 'geocoder'
-  gem 'carrierwave', '~> 0.10.0'
 
-  gem "paperclip", "~> 6.0.0"
+  gem 'sqlite3'
+
 
 end
 
@@ -36,14 +31,20 @@ gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'rails_admin_rollincode', '~> 1.0'
 gem "devise"
 gem 'bootstrap-sass', '~> 3.3.6'
+gem "paperclip", "~> 6.0.0"
+
 
 gem 'jquery-rails'
 
 gem 'social-share-button', '~> 0.1.6'
 
 
-
+gem "gmap_coordinates_picker"
+gem 'dotenv-rails'
+gem 'geocoder'
+gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
+  gem "bootstrap_form"
 
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -81,6 +82,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
