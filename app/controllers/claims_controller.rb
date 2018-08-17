@@ -17,7 +17,7 @@ class ClaimsController < ApplicationController
     claim.admin_id=current_admin.id
     claim.rent_id=params[:rent_id]
     if claim.save
-    redirect_to "/claims"
+    redirect_to "/rents"
     else
     redirect_back(fallback_location: root_path)
     end

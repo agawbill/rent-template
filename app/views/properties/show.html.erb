@@ -109,22 +109,9 @@
               </div>
             </div>
 
-<<<<<<< Updated upstream
-
-=======
-            <div class='propertyInfoOnShowPage col-lg-12 container'>
 
 
-      <h2><%=@property.comments.count %> Reviews</h2>
-      <h3>Leave a review</h3>
-      <%= render "comments/form" %>
-      <%@comments.each do |c|%>
-      <%if @property.id == c.property_id%>
-     <div>From:<%=User.find(c.user_id).email%><strong><br><%= c.content %></div></strong><hr>
-      <%end%>
-      <%end%>
-  </div>
->>>>>>> Stashed changes
+
 </div>
 
 
@@ -141,7 +128,34 @@
 </div>
 
 
-      <%= render 'properties/map' %>
+
+      <div id="map"></div>
+<div id="pano"></div>
+
+
+    <script>
+
+      function initialize() {
+        var fenway = {lat: <%=@lat%>, lng: <%=@lng%>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: fenway,
+          zoom: 14
+        });
+        var panorama = new google.maps.StreetViewPanorama(
+            document.getElementById('pano'), {
+              position: fenway,
+              pov: {
+                heading: 34,
+                pitch: 10
+              }
+            });
+        map.setStreetView(panorama);
+      }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvZaeAyHZvBVEdQH_HQtA7JW3VA-5fW0A&callback=initialize">
+    </script>
+
 
   </div>
 
@@ -152,17 +166,35 @@
   <div class='propertyInfoOnShowPage col-lg-12 container'>
 
 
-<h2><%=@property.comments.count %> Reviews</h2>
-<h3>Leave a review</h3>
-<%= render "comments/form" %>
-<%@comments.each do |c|%>
-<%if @property.id == c.property_id%>
-<div>From:<%=User.find(c.user_id).email%><strong><br><%= c.content %></div></strong><hr>
-<%end%>
-<%end%>
-</div>
-</div>
+              <% if user_signed_in? %>
 
+
+
+
+
+
+              <h2><%=@property.comments.count %> Reviews</h2>
+              <h3>Leave a review</h3>
+              <%= render "comments/form" %>
+              <%@comments.each do |c|%>
+            <%if @property.id == c.property_id%>
+              <div>
+                From:<%=User.find(c.user_id).email%><strong><br><%= c.content %></div></strong><hr>
+                    <%end%>
+                    <%end%>
+              </div>
+
+
+
+
+
+                <% else %>
+
+                  <br>
+                <h3>  Please Log In in order to leave a comment.</h3>
+                  <a href='/login' class='btn btn-info'> Log in </a>
+                </div>
+                <% end %>
 
 <script>
 var rent_devolution_date=document.getElementById('rent_devolution_date')

@@ -2,9 +2,16 @@ class Property < ApplicationRecord
   has_many :rents
   has_many :users, :through => :rents
   belongs_to :admin
-  has_attached_file :image, styles: {large: '600x600', medium: '300x300', thumb: '150x150#'}
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-  has_many :images, :dependent => :destroy
+  mount_uploader :image, ImageUploader
+  # has_attached_file :image, styles: {large: '600x600', medium: '300x300', thumb: '150x150#'},
+  # storage: :gcs,
+  # gcs_bucket: "www.anthonygawbill.com",
+  # gcs_credentials: {
+  #   project: "group-project-212323",
+  #   keyfile: "GOOGJBM4YBCGUXHLOFFCO3PK",
+  # }
+  # validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  # has_many :images, :dependent => :destroy
   has_many :comments
 
 

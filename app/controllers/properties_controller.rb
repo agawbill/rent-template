@@ -3,6 +3,7 @@ class PropertiesController < ApplicationController
   def index
     @properties = Property.last(10)
 
+
       @apiKey=ENV['API_KEY']
 
   end
@@ -32,6 +33,8 @@ class PropertiesController < ApplicationController
   end
 
   def create
+
+
     @property = Property.new(property_params)
     @property.admin_id=current_admin.id
     if @property.save
