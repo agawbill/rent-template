@@ -11,19 +11,19 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="<%=@properties[0].image.url%>"  style="width:100%; height:100vh;">
+        <img src="<%=@properties[0].image.url%>" style="width:100%; height:100vh">
         <div class="carousel-caption d-none d-md-block">
             <h5><%=@properties[0].title%></h5>
-            <p><%=@properties[0].description%></p>
+            <p><%=@properties[0].description.truncate(50)%></p>
         </div>
       </div>
 
-      <%@properties.each do |f|%>
+      <%@properties.drop(1).each do |f|%>
         <div class="item">
-        <img src="<%=f.image.url%>"  style="width:100%; height:100vh">
+        <img src="<%=f.image.url%>" style="width:100%; height:100vh">
         <div class="carousel-caption d-none d-md-block">
             <h5><%=f.title%></h5>
-            <p><%=f.description%></p>
+            <p><%=f.description.truncate(50)%></p>
         </div>
       </div>
 

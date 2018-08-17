@@ -1,3 +1,3 @@
 class Image < ApplicationRecord
- belongs_to :properties
+  belongs_to :properties
 end

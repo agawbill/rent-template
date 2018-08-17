@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :documents
   get "/properties/showall" => "properties#showall"
   get "/properties/about" => "properties#about"
+  get "/properties/index" => "properties#index"
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'

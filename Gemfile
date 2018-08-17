@@ -12,10 +12,11 @@ gem 'rails', '~> 5.1.4'
 
 group :development, :test do
 
-  gem 'sqlite3'
+
 
 
 end
+  gem 'sqlite3'
 
 group :production do
   gem 'pg', '~> 0.18'
@@ -82,3 +83,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+
+
+gem "appengine", "~> 0.4.5"
+
+gem "mysql2", "~> 0.5.2"
+gem 'paperclip-gcs'
+gem "fog-google"
