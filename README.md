@@ -1,5 +1,9 @@
 A Rails APP template where a user admin (business owner) can create "properties" for users to login and rent.
 
+
+****** I had to take this down due to hosting costs.... but you can see a video walkthrough and description of the project in production here: http://www.anthonygawbill.com/#renttemplate *********
+
+
 https://group-project-212323.appspot.com/  --- to main page
 
 https://group-project-212323.appspot.com/admin_panel  -- to RAILS ADMIN PANEL
